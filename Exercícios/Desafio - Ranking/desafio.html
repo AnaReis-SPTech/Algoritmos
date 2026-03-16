@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio</title>
+</head>
+<body>
+    <div class="text-body">
+        <h1>DESAFIO! Adivinhe o Ranking da Competição.</h1>
+        <p>Dentre os mobs mais votados para futuras adicões no Minecraft, adivinhe o ranking...
+        <br><b>Mobs competindo:</b> Tatu, Pinguim, Caranguejo, Guaxinim e Macaco.</p>
+    </div>
+    <div class="container">
+        <label for="id_chute1">Digite o 1° Lugar: </label>
+        <input type="text" name="1 Lugar" id="id_chute1"> <br>
+        <label for="id_chute2">Digite o 2° Lugar: </label>
+        <input type="text" name="2 Lugar" id="id_chute2"> <br>
+        <label for="id_chute3">Digite o 3° Lugar: </label>
+        <input type="text" name="3 Lugar" id="id_chute3"> <br>
+        <label for="id_chute1">Digite o 4° Lugar: </label>
+        <input type="text" name="4 Lugar" id="id_chute4"> <br>
+        <label for="id_chute1">Digite o 5° Lugar: </label>
+        <input type="text" name="5 Lugar" id="id_chute5"> <br>
+        <button onclick="adivinhar()"> Exibir Resultado </button>
+        <div id="resultado"></div>
+        <h3 id="final_m"></h3>
+    </div>
+</body>
+<script>
+    function adivinhar() {
+        let acertos = 0;
+        let erros = 0;
+        let nomes_erro = "";
+        let nomes_acerto = "";
+        let chute1 = id_chute1.value;
+        let chute2 = id_chute2.value;
+        let chute3 = id_chute3.value;
+        let chute4 = id_chute4.value;
+        let chute5 = id_chute5.value;
+        let ranking = ["Pinguim", "Tatu", "Macaco", "Caranguejo", "Guaxinim"];
+
+        if (ranking[0] == chute1) {
+            acertos += 1;
+            nomes_acerto += `${ranking[0]}, `;
+        } else {
+            erros += 1;
+            nomes_erro += `${ranking[0]}, `;
+        };
+
+        if (ranking[1] == chute2) {
+            acertos += 1;
+            nomes_acerto += `${ranking[1]}, `;
+        } else {
+            erros += 1;
+            nomes_erro += `${ranking[1]}, `;
+        };
+
+        if (ranking[2] == chute3) {
+            acertos += 1;
+            nomes_acerto += `${ranking[2]}, `;
+        } else {
+            erros += 1;
+            nomes_erro += `${ranking[2]}, `;
+        };
+
+        if (ranking[3] == chute4) {
+            acertos += 1;
+            nomes_acerto += `${ranking[3]}, `;
+        } else {
+            erros += 1;
+            nomes_erro += `${ranking[3]}, `;
+        };
+
+        if (ranking[4] == chute5) {
+            acertos += 1;
+            nomes_acerto += `${ranking[4]}.`;
+        } else {
+            erros += 1;
+            nomes_erro += `${ranking[4]}.`;
+        };
+
+        if (acertos == 0) {
+            acertos = "Nenhum acerto!";
+            nomes_acerto = "Nenhum nome acertado!";
+        } else if (erros == 0) {
+            erros = "Nenhum erro!";
+            nomes_erro = "Nenhum nome errado!";
+        };
+
+        if (acertos > 2) {
+            final_m.innerHTML = `Você conhece bem essa competição!`;
+        } else if (acertos <= 2) {
+            final_m.innerHTML = `Você precisa acompanhar mais essa competição!`;
+        }
+
+        resultado.innerHTML = `
+        Qtd erros: ${erros} <br>
+        Errei os nomes: ${nomes_erro} <br>
+        Qtd Acertos: ${acertos} <br>
+        Acertei os nomes: ${nomes_acerto}
+        `;
+    }
+</script>
+</html>

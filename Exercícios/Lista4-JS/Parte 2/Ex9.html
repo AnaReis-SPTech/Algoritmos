@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 9</title>
+</head>
+<body>
+    <h1>Tempo Gasto com Séries</h1>
+    <p>Descubra quanto tempo você assistiu sua série favorita!</p>
+    <label for="id_nome_serie">Nome da Série: </label>
+    <input type="text" id="id_nome_serie" placeholder="Insira sua série: ">
+    <br><br>
+    <label for="id_num_eps">Qtd de Episódios: </label>
+    <input type="text" id="id_num_eps" placeholder="Insira qtd eps assistidos:">
+    <br><br>
+    <button onclick="nivel()"> Verificar Nivel </button>
+    <br>
+    <h3 id="id_mensagem"></h3>
+    <h3 id="id_mensagem2"></h3>
+</body>
+<script>
+    function nivel() {
+        let nome = id_nome_serie.value;
+        let eps = Number(id_num_eps.value);
+        let qtd_minutos = eps * 22;
+        let qtd_horas = qtd_minutos / 60;
+
+        if (qtd_horas > 30) {
+            id_mensagem.innerHTML = `Vejo que você gosta da série ${nome}`;
+            id_mensagem2.innerHTML = `Uau, você realmente gosta dessa série!`;
+        } else {
+            id_mensagem.innerHTML = `Vejo que você gosta da série ${nome}`;
+            id_mensagem2.innerHTML = ``;
+        }
+     }
+</script>
+</html>

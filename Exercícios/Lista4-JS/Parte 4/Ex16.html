@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 16</title>
+</head>
+<body>
+    <h1>Mercado BOM DOCE</h1>
+    <p>Descubra quanto vai pagar pelos chocolates!</p>
+    <label for="id_qtd_chocolates">Qtd Chocolates: </label>
+    <input type="text" id="id_qtd_chocolates" placeholder="Quantos chocolates? ">
+    <br><br>
+    <button onclick="calculo_valor()"> Compra </button>
+    <br>
+    <h3 id="mensagem"></h3>
+</body>
+<script>
+    function calculo_valor() {
+        let qtd_choc = Number(id_qtd_chocolates.value);
+        let preco = qtd_choc * 3;
+        let preco_desconto = qtd_choc * 2.5;
+
+        if (qtd_choc >= 12) {
+            mensagem.innerHTML = `O valor da sua compra foi de ${preco_desconto}`;
+        } else {
+            mensagem.innerHTML = `O valor da sua compra foi de ${preco}`;
+        }
+    }
+</script>
+</html>

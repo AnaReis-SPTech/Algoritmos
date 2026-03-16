@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 15</title>
+</head>
+<body>
+    <h1>Auxílio do Banco XPTO</h1>
+    <p>Você entrou com um cheque especial?</p>
+    <label for="id_saldo">Saldo: </label>
+    <input type="text" id="id_saldo" placeholder="Insira seu saldo: ">
+    <br><br>
+    <label for="id_debito">Débito: </label>
+    <input type="text" id="id_debito" placeholder="Insira valor do debito: ">
+    <br><br>
+    <button onclick="analise()"> Analisar Conta </button>
+    <br>
+    <h3 id="mensagem1" style="color: rgb(212, 0, 0);"></h3>
+    <h3 id="mensagem2" style="color:  rgb(57, 57, 221);"></h3>
+</body>
+<script>
+    function analise() {
+        let saldo = Number(id_saldo.value);
+        let debito = Number(id_debito.value);
+        let resultado = saldo - debito;
+
+        if (resultado <= 0) {
+            mensagem1.innerHTML = `<b>o saldo atual da conta corrente é ${resultado}</b>`;
+            mensagem2.innerHTML = ``;
+        } else {
+            mensagem2.innerHTML = `<i>o saldo atual da conta corrente é ${resultado}</i>`;
+            mensagem1.innerHTML = ``;
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-black: black;
+    --second-white: white;
+    --shadow: red;
+    --text: rgb(49, 49, 49);
+    --text-body: white;
+}
+
+body {
+    background-color: black;
+    color: var(--text-body);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    margin-top: 2%;
+    padding: 5%;
+    border-radius: 50px;
+    background-color: var(--second-white);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    width: 70vh;
+    height: auto;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AND / OR</title>
+</head>
+<body>
+    <input type="text" id="ipt_idade" placeholder="Digite sua idade:">
+    <br>
+    <input type="text" id="qtd_pets" placeholder="Qtd de pets que vc possui: ">
+    <br>
+    <button onclick="analisar()"> Analisar </button>
+    <br><br>
+    <div id="div_resultado"></div>
+    <br><br>
+    <input type="text" id="id_login" placeholder="Digite seu login: ">
+    <br>
+    <input type="text" id="id_senha" placeholder="Digite sua senha: ">
+</body>
+<script>
+    function analisar() {
+        let idade = Number(ipt_idade.value);
+        let qtd_pets = Number(ipt_qtd_pets.value);
+        let loginDigitado = id_login.value;
+        let senhaDigitada = id_senha.value;
+        let senhaCorreta;
+        let loginCorreto;
+        let userBloqueado = false;
+
+        if (idade >= 18) {
+            if (qtd_pets >= 3) {
+                div_resultado.innerHTML += `<br> Você tem direito ao crédito Pet feliz!`
+            }
+        }
+
+        // Para fazer E/OU
+        // E = && (As duas condições precisam ser atendidas)
+        // OU = || (Uma das condições precisa ser atendida)
+
+        if (idade >= 18 && qtd_pets >= 3) {
+            div_resultado.innerHTML += "Você tem direito ao crédito Pet feliz!"
+        } else {
+            div_resultado.innerHTML += "Você não tem direito ao crédito pet feliz."
+        }
+
+        loginCorreto = "bob_admin" // Busquei no banco
+        senhaCorreta = "senhaForte" // Busquei no banco
+
+        if (loginDigitado == loginCorreto && senhaDigitada == senhaCorreta) {
+            div_resultado.innerHTML = `Seu login está correto, pode entrar!`
+            if (!userBloqueado) {
+                div_resultado.innerHTML = `<br> Você não está bloqueado` 
+            };
+        } else {
+            div_resultado.innerHTML = `<br><p style = "color: red;" >Senha e/ou login incorreto(s)!!!</p>`
+        };
+    }
+</script>
+</html>

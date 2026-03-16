@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt_texto">
+    <button onclick="validar()"> Validar Frase </button>
+</body>
+<script>
+    function validar() {
+        let frase = ipt_texto.value
+
+        let contem_bob_inicio = frase.startsWith("Bob");
+        // startsWith = Serve para validar se a frase começa com algo específico
+
+        resultado.innerHTML +=(`O texto começa com bob? ${contem_bob_inicio}`)
+
+        let contem_bob_fim = frase.endsWith("bob");
+        // startsWith = Serve para validae se a frase termina com algo específico
+
+        resultado.innerHTML +=(`O texto termina com bob? ${contem_bob_fim}`)
+
+        let cpf_limpo = frase.trim();
+        // O trim remove todos os espaços das larerais do texto
+
+        resultado.innerHTML +=(`Exemplo CPF original: ${frase}`);
+        resultado.innerHTML +=(`Exemplo CPF original: ${cpf_limpo}`);
+
+        let tamanho_frase = frase.length;
+        // O length conta o tamanho da frase, ou seja, seus caracteres
+
+        resultado.innerHTML +=(`O tamanho da frase é ${tamanho_frase}`);
+
+        let primeira_letra = frase[0];
+        resultado.innerHTML +=(`Primeira letra da frase: ${primeira_letra}`);
+
+        let ultima_letra = frase[tamanho_frase - 1];
+        // -1 porque o length não começa a contagem em 0
+
+        resultado.innerHTML +=(`Ultima letra: ${ultima_letra}`);
+
+        let indice_oi_na_frase = frase.indexOf("oi ");
+        resultado.innerHTML +=(`A palavra foi encontrada na posição: ${indice_oi_na_frase}`);
+
+        let frase_caixa_alta = frase.toUpperCase();
+        resultado.innerHTML +=(`frase GRITANDO: ${frase_caixa_alta}`);
+
+        let frase_caixa_baixa = frase.toLowerCase();
+        resultado.innerHTML +=(`Agora tudo minúsculo: ${frase_caixa_baixa}`);
+
+        let frase_replace = frase.replace(',','|');
+        resultado.innerHTML +=(`Trocando todas as "," por "|": ${frase_replace}`);
+
+        //NaN = Not a Number
+    }
+</script>
+</html>

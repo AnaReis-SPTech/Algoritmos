@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 10</title>
+</head>
+<body>
+    <h1>Situação Financeira da Conta Bancária</h1>
+    <p>Descubra qual é a sua situação financeira!</p>
+    <label for="id_saldo">Saldo: </label>
+    <input type="text" id="id_saldo" placeholder="Insira saldo atual: ">
+    <br><br>
+    <button onclick="analise()"> Verificar Finanças </button>
+    <br>
+    <h3 id="preto"></h3>
+    <h3 id="vermelho" style="color: rgb(212, 0, 0);"></h3>
+    <h3 id="azul" style="color: rgb(57, 57, 221);"></h3>
+</body>
+<script>
+    function analise() {
+        let saldo = Number(id_saldo.value);
+
+        if (saldo > 0) {
+            preto.innerHTML = ``;
+            vermelho.innerHTML = ``;
+            azul.innerHTML = `Saldo positivo! sorriso`;
+        } else {
+            if (saldo < 0) {
+                preto.innerHTML = ``;
+                vermelho.innerHTML = `Está devendo!`;
+                azul.innerHTML = ``;
+            } else {
+                preto.innerHTML = `Conta zerada`;
+                vermelho.innerHTML = ``;
+                azul.innerHTML = ``;
+            }
+        }
+    }
+</script>
+</html>

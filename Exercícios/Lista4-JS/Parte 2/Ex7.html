@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 7</title>
+</head>
+<body>
+    <h1>Cheque Especial do Banco XPTO</h1>
+    <p>Verifique se entrou com um cheque especial!</p>
+    <label for="id_saldo_conta">Saldo: </label>
+    <input type="text" id="id_saldo_conta" placeholder="Insira sua renda familiar:">
+    <br><br>
+    <label for="id_debito">Débito: </label>
+    <input type="text" id="id_debito" placeholder="Insira valor do débito:">
+    <br><br>
+    <button onclick="analise()"> Analisar Conta </button>
+    <br>
+    <h3 id="mensagem"></h3>
+    <h3 id="mensagem2" style="color: rgb(212, 0, 0);"></h3>
+</body>
+<script>
+    function analise() {
+        let saldo = Number(id_saldo_conta.value);
+        let debito = Number(id_debito.value);
+        let resultado = (saldo - debito);
+
+        if (resultado <= 0) {
+            mensagem2.innerHTML = `<b>O saldo atual da conta corrente é ${resultado}.</b>`;
+            mensagem.innerHTML = ``;
+        } else {
+            mensagem.innerHTML = `O saldo atual da conta corrente é ${resultado}.`;
+            mensagem2.innerHTML = ``;
+        }
+    }
+</script>
+</html>

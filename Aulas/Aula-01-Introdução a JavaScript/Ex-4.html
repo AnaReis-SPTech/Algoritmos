@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4</title>
+</head>
+<body>
+    <!-- Atividade de Intodução a JavaScript -->
+    <!-- Algoritmos - Giuliana Franca -->
+    <!-- Autor: Ana Carolina Viana Dos Reis -->
+
+    <h1>Introdução a JavaScript</h1>
+    <p>Onde eu moro</p>
+    <br>
+    Insira nome da Rua/Avenida/Vila: <input type="text" id="nome">
+    <br>
+    Insira o número da casa: <input type="text" id="numero">
+    <br>
+    <button onclick= 'acao()'>Onde eu moro</button>
+    <br>
+    <p id="frase1"></p>
+    <p id="frase2"></p>
+</body>
+<script>
+    function acao() {
+        frase1.innerHTML = "Seu Logradouro é " + nome.value + "."
+        frase2.innerHTML = "O número do seu logradouro é " + numero.value + "."
+    }
+</script>
+</html>

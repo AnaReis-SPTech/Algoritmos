@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+</head>
+<body>
+    <h1>Bora Contar!</h1>
+    <br>
+    <button onclick="Contar()">Contar!</button>
+    <br>
+    <h2 id="contagem"></h2>
+</body>
+<script>
+    let contador = 0;
+    // Variável global está fora das functions e pode ser usado em todos
+    function Contar(){
+        contagem.innerHTML = ++contador;
+        // contador = contador + 1
+    }
+</script>
+</html>

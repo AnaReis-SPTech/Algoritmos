@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 5</title>
+</head>
+<body>
+    <!-- Atividade de Intodução a JavaScript -->
+    <!-- Algoritmos - Giuliana Franca -->
+    <!-- Autor: Ana Carolina Viana Dos Reis -->
+
+    <h1>Introdução a JavaScript</h1>
+    <p>Opinião da Mãe e da Vó</p>
+    <br>
+    Insira sua nota da escola: <br> <input type="text" id="nota">
+    <br>
+    <button onclick="vo()">Opinião da Vó</button>
+    <br>
+    <button onclick="mae()">Opinião da Mãe</button>
+    <br>
+    <p id="frase"></p>
+</body>
+<script>
+    function vo() {
+        frase.innerHTML = 'Muito bem, que neto inteligente, porque tirou ' + nota.value + '.'
+    }
+
+    function mae() {
+        frase.innerHTML = 'Não fez mais que sua obrigação com essa nota ' + nota.value + '.'
+    }
+</script>
+</html>

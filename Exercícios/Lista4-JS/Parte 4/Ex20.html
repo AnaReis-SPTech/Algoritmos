@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 20</title>
+</head>
+<body>
+    <h1>Funcionamento do Elevador</h1>
+    <p>O elevador vai funcionar ou não? Descubra a partir do peso!</p>
+    <label for="id_qtd_homens">Qtd Homens: </label>
+    <input type="text" id="id_qtd_homens" placeholder="Insira qtd homens: ">
+    <br><br>
+    <label for="id_qtd_mulheres">Qtd Mulheres: </label>
+    <input type="text" id="id_qtd_mulheres" placeholder="Insira qtd mulheres: ">
+    <br><br>
+    <button onclick="verificar_peso()"> Ligar Elevador </button>
+    <br>
+    <h3 id="mensagem_verde" style="color: rgb(0, 212, 0);"></h3>
+    <h3 id="mensagem_vermelha" style="color: rgb(212, 0, 0);"></h3>
+</body>
+<script>
+    function verificar_peso() {
+        let qtd_h = Number(id_qtd_homens.value);
+        let qtd_m = Number(id_qtd_mulheres.value);
+        let peso_h = qtd_h * 90;
+        let peso_m = qtd_m * 70;
+        let peso_total = peso_h + peso_m;
+        let resto = peso_total - 500;
+
+        if (peso_total > 500) {
+            mensagem_vermelha.innerHTML = `Alguém precisa descer. Precisa perder ${resto}kg para mover o elevador`;
+            mensagem_verde.innerHTML = ``;
+        } else {
+            mensagem_verde.innerHTML = `Elevador vai se mover, pois está com ${peso_total}kg `;
+            mensagem_vermelha.innerHTML = ``;
+        }
+    }
+</script>
+</html>

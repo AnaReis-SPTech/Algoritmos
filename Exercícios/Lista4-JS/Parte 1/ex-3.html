@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+</head>
+<body>
+    <h1>Média Escolar de Paty</h1>
+    <p>Verifique se você é um aluno fora de série!</p>
+    <label for="id_n1">Nota 1: </label>
+    <input type="text" id="id_n1" placeholder="Digite a nota 1">
+    <br><br>
+    <label for="id_n2">Nota 2: </label>
+    <input type="text" id="id_n2" placeholder="Digite a nota 2">
+    <br><br>
+    <label for="id_n3">Nota 3: </label>
+    <input type="text" id="id_n3" placeholder="Digite a nota 3">
+    <br><br>
+    <button onclick="calcular_desempenho()"> Analisar Desempenho </button>
+    <br>
+    <p id="id_resultado"></p>
+</body>
+<script>
+    function calcular_desempenho() {
+        let n1 = Number(id_n1.value);
+        let n2 = Number(id_n2.value);
+        let n3 = Number(id_n3.value);
+        let media = (n1 + n2 + n3) / 3;
+        let media_decimal = media.toFixed(2);
+
+        if (media >= 9.4) {
+            id_resultado.innerHTML = `Parabéns, você é fora de série!`;
+        } else {
+            id_resultado.innerHTML = `Sua média foi de ${media_decimal}, onde ${media_decimal} é a média calculada`;
+        }
+    }
+</script>
+</html>

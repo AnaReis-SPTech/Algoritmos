@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #dadada;
+    align-items: center;
+}
+
+.container {
+    margin-top: 5%;
+    height: 200px;
+    width: 200px;
+    border-radius: 50px;
+    padding: 50px;
+    box-shadow: 2px 1px 0px 1px, black;
+}

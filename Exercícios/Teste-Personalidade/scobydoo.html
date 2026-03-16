@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body id="cor_fundo">
+    <div class="css-style">
+        <input id="id_coragem" placeholder="De 0 a 10 sua coragem"> <br><br>
+        <input id="id_inteligencia" placeholder="De 0 a 10 sua inteligencia"><br><br>
+        <input id="id_curiosidade" placeholder="De 0 a 10 sua curiosidade"><br><br>
+        <input id="id_fome" placeholder="De 0 a 10 sua fome"><br><br>
+        <button onclick="analisar()">Quem você é?</button>
+        <div id="id_resultado"></div>
+    </div>
+
+
+</body>
+<script>
+    function analisar() {
+        let resultado = ""
+        let inteligencia = Number(id_inteligencia.value)
+        let coragem = Number(id_coragem.value)
+        let fome = Number(id_fome.value)
+        let curiosidade = Number(id_curiosidade.value)
+
+        if (inteligencia >= 9 && curiosidade >= 8) {
+            resultado = "velma"
+        } else if (inteligencia >= 8 && coragem >= 8) {
+            resultado = "fred"
+        } else if (coragem >= 6 && curiosidade >= 7) {
+            resultado = "daphine"
+        } else if (fome >= 9 && coragem <= 5) {
+            resultado = "salsicha ou scooby-do"
+        } else {
+            resultado = "van"
+        }
+
+        if (resultado == "velma") {
+            id_resultado.innerHTML = `<img src="https://media.tenor.com/-Ow1kzp2pNEAAAAM/velma-scooby-doo.gif" alt=""> <br><br> <p style= "color: black ">velma</p>`
+            cor_fundo.style.backgroundColor = "orange"
+        } else if (resultado == "salsisha") {
+            id_resultado.innerHTML = `<img src="https://media.tenor.com/sod5dHhhvcgAAAAm/shaggy-dance.webp" alt=""> <br><br><p style= "color: black">salsisha</p>`
+            cor_fundo.style.backgroundColor = "green"
+
+
+        } else if (resultado == "daphine") {
+            id_resultado.innerHTML = `<img src="https://media.tenor.com/8370o-y_jEYAAAAM/scooby-doo-the-sword-and-the-scoob-scooby-doo.gif" alt=""><br><br><p style= "color:black">daphine</p>`
+            cor_fundo.style.backgroundColor = "purple"
+
+        } else if (resultado == "fred") {
+            id_resultado.innerHTML = `<img src="https://media1.tenor.com/m/odQ1IVmkaT4AAAAd/scooby-doo-fred.gif" alt=""><br><br><p style= "color: black">fred</p>`
+            cor_fundo.style.backgroundColor = "blue"
+        } else {
+            id_resultado.innerHTML = `<img src="https://media.tenor.com/ihd70a9_wccAAAAM/scooby-doo.gif" alt=""><br><br><p style= "color: black">Van</p>`
+            cor_fundo.style.backgroundColor = "lightgreen"
+        }
+
+
+
+
+
+
+
+    }
+
+</script>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="operadores.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap"rel="stylesheet">
+    <title>Operadores</title>
+</head>
+
+<body>
+    <!-- Operadores Aritméticos -->
+    <!--
+        * multiplicação
+        / divisão
+        - subtração
+        + soma
+        ** potência
+    -->
+    <div class="container">
+        <h1>Operadores<br>Matemáticos</h1>
+        <br>
+        <input type="text" id="id_num_01">
+        <br>
+        <input type="text" id="id_num_02">
+        <br>
+        <button onclick="calcular()">Calcular</button>
+    </div>
+    <div class="cont2">
+        <h1>Resultados:</h1>
+        <br>
+        <h3 id="id_resultado">O resultado aparece aqui.</h3>
+    </div>
+</body>
+<script>
+    // Colocar sempre uma ação, em modo verbal como nome da função
+    // Ctrl + ; = criar comentário
+    // Shift + Alt + seta = copia a linha
+    function calcular() {
+        // Versão sem alert
+        let num_01_digitado = Number(id_num_01.value);
+        let num_02_digitado = Number(id_num_02.value);
+
+        //id_resultado.innerHTML = "A soma é " + (num_01_digitado + num_02_digitado) + 
+        //"<br> A subtração é " + (num_01_digitado - num_02_digitado) +
+        //"<br> A multiplicação é " + (num_01_digitado * num_02_digitado) +
+        //"<br> A divisão é " + (num_01_digitado / num_02_digitado);
+
+        // Interpolação com crase (`)
+        id_resultado.innerHTML = `
+        Soma: ${(num_01_digitado + num_02_digitado)} <br>
+        Subtração: ${(num_01_digitado + num_02_digitado)} <br>
+        Multiplicação: ${(num_01_digitado + num_02_digitado)} <br>
+        Divisão: ${(num_01_digitado / num_02_digitado)}
+        `
+    }
+    // alert("A subtração é " + ( num_01_digitado - num_02_digitado + "."))
+    // alert("A soma é " + (num_01_digitado + num_02_digitado + "."))
+    // alert("A divisão é " + (num_01_digitado / num_02_digitado + "."))
+    // alert("A multiuplicação é " + (num_01_digitado * num_02_digitado + "."))
+</script>
+
+</html>

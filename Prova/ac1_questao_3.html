@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Questão 3</title>
+</head>
+<body>
+   <h2>Questão 3</h2>
+   
+   <span>Quantidade de MB de internet consumida no plano</span>
+   <input type="text" id="input_mb"> <br>
+
+   <span>Indicação se há telefone vinculado ao plano</span>
+   <input type="text" id="input_indicacao"> <br>
+
+   <button onclick="calcular()">Calcular Despesa</button>
+
+   <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+/* Faça sua lógica aqui! Não altere o HTML. */
+function calcular() {
+   let mb_consumido = Number(input_mb.value);
+   let indicacao_vinculo = input_indicacao.value;
+   let valor_base = mb_consumido;
+   let valor_total;
+   let mensagem;
+
+   if (mb_consumido <= 200) {
+      valor_base = valor_base + 40;
+   } else if (mb_consumido > 200) {
+      valor_base = valor_base - 40;
+   }
+
+   if (indicacao_vinculo == 'sim') {
+      valor_total = valor_base * 1.20;
+      mensagem = `Com o consumo de ${mb_consumido} MB de internet, o valor base do plano de internet é R$${valor_base}, totalizando R$${valor_total} com telefone.`;
+   } else if (indicacao_vinculo == 'não') {
+      mensagem = `Com o consumo de ${mb_consumido} MB de internet, o valor do plano de internet totaliza R$${valor_base}.`;
+   }
+
+   div_mensagem.innerHTML = mensagem;
+}
+</script>

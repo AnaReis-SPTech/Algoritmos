@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 17</title>
+</head>
+<body>
+    <h1>Analise sua Frequência</h1>
+    <p>Descubra se você é um aluno turista ou estudioso!</p>
+    <label for="id_freq">Frequência (%): </label>
+    <input type="text" id="id_freq" placeholder="Digite sua frequência: ">
+    <br><br>
+    <button onclick="analise_freq()"> Analisar Frequência </button>
+    <br><br>
+    <div id="mensagem"></div>
+</body>
+<script>
+    function analise_freq() {
+        let freq = Number(id_freq.value);
+        
+        if (freq <= 50) {
+            mensagem.innerHTML = `<img src="https://img.freepik.com/fotos-gratis/turista-apontando-para-cima_1368-7017.jpg?semt=ais_hybrid&w=740&q=80" alt="Turista" width="auto" height="400px">`;
+        } else {
+            mensagem.innerHTML = `<img src="https://thumbs.dreamstime.com/b/estudante-reading-books-showing-estudioso-34211523.jpg" alt="Turista" width="auto" height="400px">`;
+        }
+    }
+</script>
+</html>

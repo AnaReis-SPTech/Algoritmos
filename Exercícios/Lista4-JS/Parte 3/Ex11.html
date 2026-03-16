@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 11</title>
+</head>
+<body>
+    <h1>Quantidade de Filhos</h1>
+    <label for="id_qtd_filhos">Qtd Filhos: </label>
+    <input type="text" id="id_qtd_filhos" placeholder="Quantos filhos tem?">
+    <br><br>
+    <button onclick="analise()"> Analisar Famúlia </button>
+    <br>
+    <h3 id="mensagem1"></h3>
+    <h3 id="mensagem2"></h3>
+    <h3 id="mensagem3"></h3>
+    <h3 id="mensagem4"></h3>
+</body>
+<script>
+    function analise() {
+        let num_filhos = Number(id_qtd_filhos.value);
+
+        if (num_filhos == 1) {
+            mensagem1.innerHTML = `Não tem TV`;
+            mensagem2.innerHTML = ``;
+            mensagem3.innerHTML = ``;
+            mensagem4.innerHTML = ``;
+        } else { 
+            if (num_filhos == 2) {
+                mensagem1.innerHTML = `Não tem TV`;
+                mensagem2.innerHTML = `Não tem internet`;
+                mensagem3.innerHTML = ``;
+                mensagem4.innerHTML = ``;
+            } else {
+                if (num_filhos == 3) {
+                    mensagem1.innerHTML = `Não tem TV`;
+                    mensagem2.innerHTML = `Não tem internet`;
+                    mensagem3.innerHTML = `Não tem video game`;
+                    mensagem4.innerHTML = ``;    
+                } else {
+                    if (num_filhos >= 4) {
+                        mensagem1.innerHTML = `Não tem TV`;
+                        mensagem2.innerHTML = `Não tem internet`;
+                        mensagem3.innerHTML = `Não tem video game`;
+                        mensagem4.innerHTML = `Não tem Netflix`;    
+                    } else {
+                        mensagem1.innerHTML = ``;
+                        mensagem2.innerHTML = ``;
+                        mensagem3.innerHTML = ``;
+                        mensagem4.innerHTML = ``;   
+                    }
+                }
+                
+            }
+        }
+    }
+</script>
+</html>

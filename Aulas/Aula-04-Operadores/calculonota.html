@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculo Nota</title>
+</head>
+<body>
+    <input type="text" id="nota01">
+    <br>
+    <input type="text" id="nota02">
+    <br>
+    <button onclick="Calcular()"> Media</button>
+    <br>
+    <p id="resultado"></p>
+</body>
+<script>
+    function Calcular(){
+        let nota1 = Number(nota01.value);
+        let nota2 = Number(nota02.value);
+        let media = ((nota1 + nota2)/2);
+
+        resultado.innerHTML = `Sua media é ${(media)} .`
+    }
+    // As variáveis com let só existem dentro do escopo de criação, das {}
+</script>
+</html>

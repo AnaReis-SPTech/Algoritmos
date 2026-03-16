@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detector de Mensagens Suspeitas</title>
+</head>
+<body>
+    <h1>Detector de Mensagens Suspeitas</h1>
+    <p>Digite sua mensagem e descubra todas as características dela, além de saber se é uma mensagem suspeita ou não.</p>
+    <br>
+    <label for="id_mensagem"> Digite a mensagem: </label>
+    <input type="text" id="id_mensagem">
+    <br><br>
+    <button onclick="analise()"> Analisar Mensagem </button>
+    <br>
+    <h3 id="classificacao" style="color: red;"></h3>
+    <div id="resultado">
+    </div>
+</body>
+<script>
+    function analise() {
+        resultado.innerHTML = "";
+        classificacao.innerHTML = "";
+        let mensagem = id_mensagem.value;
+        let tamanho_mensagem = mensagem.length;
+        let comeca_com_Eu = mensagem.startsWith('Eu ');
+        let termina_em_pontocom = mensagem.endsWith('.com');
+        let termina_em_pontobr = mensagem.endsWith('.br');
+        let primeira_letra = mensagem[0];
+        let quarta_letra = mensagem[4];
+        let ultima_letra = mensagem[tamanho_mensagem - 1];
+        let bob_aparece;
+        let maiusculo = mensagem.toUpperCase();
+        let minusculo = mensagem.toLowerCase();
+        let sem_espaco_laterais = mensagem.trim();
+        let contem_promocao = maiusculo.indexOf("PROMOÇÃO");
+        let contem_gratis = maiusculo.indexOf("GRÁTIS");
+        let contem_eu = maiusculo.indexOf("EU");
+        let indice_bob = maiusculo.indexOf("BOB");
+        let comum;
+
+        if (indice_bob == -1) {
+            bob_aparece = false;
+        } else {
+            bob_aparece = true;
+        }
+
+        if (sem_espaco_laterais == "") {
+            resultado.innerHTML += `<p style="color: red;"><b>Digite uma mensagem válida</b></p> <br>`;
+        } else if (tamanho_mensagem < 10) {
+            resultado.innerHTML = `<p style="color: red;"><b>Mensagem muito curta para análise!</b></p> <br>`;
+        } else if (bob_aparece) {
+            resultado.innerHTML += `<p style="color: red;"><b>Atenção: Usuário Bob mencionado na mensagem.</b></p> <br>`;
+        } else if (termina_em_pontocom || termina_em_pontobr) {
+            resultado.innerHTML += `<p style="color: red;"><b>A mensagem contém possível link.</b></p> <br>`;
+            classificacao.innerHTML += `Mensagem com link`;
+            comum = false;
+        } else if (contem_gratis || contem_promocao) {
+            resultado.innerHTML += `<p style="color: red;"><b>Possível mensagem de spam detectada.</b> </p><br>`;
+            classificacao.innerHTML = `Mensagem suspeita`;
+            comum = false;
+        } else if (contem_eu) {
+            resultado.innerHTML += `<p style="color: red;"><b>A mensagem parece estar escrita em primeira pessoa.</b></p> <br>`;
+        }
+
+        if (comum) {
+            classificacao = `Mensagem comum`;
+        }
+
+        resultado.innerHTML += (`<b>Mensagem digitada:</b> ${mensagem} <br>`);
+        resultado.innerHTML += (`<b>Qtd de caracteres:</b> ${tamanho_mensagem} <br>`);
+        resultado.innerHTML += (`<b>Começa com "Eu"?</b> ${comeca_com_Eu} <br>`);
+        resultado.innerHTML += (`<b>Termina com ".com"?</b>${termina_em_pontocom} <br>`);
+        resultado.innerHTML += (`<b>Termina com ".br":</b> ${termina_em_pontobr} <br>`);
+        resultado.innerHTML += (`<b>A primeira letra é:</b> ${primeira_letra} <br>`);
+        resultado.innerHTML += (`<b>A 4° letra é: </b>${quarta_letra} <br>`);
+        resultado.innerHTML += (`<b>A última letra é:</b> ${ultima_letra} <br>`);
+        resultado.innerHTML += (`<b>A palavra "bob" aparece em:</b> ${indice_bob} <br>`);
+        resultado.innerHTML += (`<b>A palavra "bob" aparece?</b> ${bob_aparece} <br>`);
+        resultado.innerHTML += (`<b>Mensagem em MAIÚSCULO:</b> ${maiusculo} <br>`);
+        resultado.innerHTML += (`<b>Mensagem em MINÚSCULO:</b> ${minusculo} <br>`);
+        resultado.innerHTML += (`<b>Mensagem sem espaços nas laterais:</b> ${sem_espaco_laterais} <br>`);
+    }
+</script>
+</html>

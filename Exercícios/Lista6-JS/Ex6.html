@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Exercício 6</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content-title">
+            <h1>Desempenho Escolar</h1>
+            <p>Verifique se o aluno foi aprovado ou não!</p>
+        </div>
+        <div class="content-input">
+            <label for="id_nota">Nota: </label>
+            <input type="text" id="id_nota" placeholder="Insira aqui..."> <br>
+            <label for="id_freq">Frequencia: </label>
+            <input type="text" id="id_freq" placeholder="Insira aqui..."> <br>
+            <div id="id_mensagem"></div>
+        </div>
+        <button onclick="clima()"> Analisar aluno </button>
+    </div>
+</body>
+<script>
+    function clima() {
+        let nota = Number(id_nota.value);
+        let freq = Number(id_freq.value);
+        let resultado;
+        let frase_freq;
+
+        if (nota > 10 || nota < 0) {
+            alert("Onde já se viu nota <0 ou >10?");
+            resultado = ``;
+        } else if (freq > 100 || nota < 0) {
+            alert("Onde já se viu frequencia <0 ou >100?");
+            resultado = ``;
+        } else if (freq < 76) {
+            frase_freq = ` Aluno reprovado por frequência.`
+        } else if (freq > 75) {
+            frase_freq = ` Aluno aprovado por frequência.`
+        }
+        
+        if (nota < 6) {
+            resultado = `Aluno ficou abaixo da média.`;
+        } else if (nota >= 6 && nota <=8 ) {
+            resultado = `Aluno ficou na média`;
+        } else if (nota > 8) {
+            resultado = `Aluno ficou acima da média!`;
+        }
+
+        console.log('O resultado é:' + resultado);
+        id_mensagem.innerHTML = `${resultado}<br>${frase_freq}`;
+    }
+</script>
+
+</html>

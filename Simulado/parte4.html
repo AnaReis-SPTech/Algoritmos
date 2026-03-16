@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Calculadora SPFlix</h1>
+
+  <div>
+      <p>Qualidade (720p ou 1080p ou 4K):</p>
+      <input type="text" id="ipt_qualidade">
+  </div>
+
+  <div style="display: flex; gap: 50px">
+    <div>
+      <p>Telas simultâneas - Na mesma casa:</p>
+      <input type="text" id="ipt_qtd_telas">
+    </div>
+
+    <div>
+      <p>Telas extras - Fora da residência:</p>
+      <input type="text" id="ipt_qtd_telas_extras">
+    </div>
+  </div>
+
+  <div>
+    <p>Quer fazer download ('sim' ou 'nao'):</p>
+    <input type="text" id="ipt_download">
+  </div>
+
+  <p></p>
+  <button onclick="exibirResultado()">Exibir Resultado</button>
+
+  <p></p>
+  <div id="div_mensagem"></div>
+
+</body>
+</html>
+<script>
+function exibirResultado() {
+  //-------- Variáveis --------
+
+    // Variáveis Parte 1
+  let qualidade = ipt_qualidade.value;
+  let mensagem = 'O valor base do seu plano é R$';
+  let valor_base;
+
+  // Variáveis Parte 2
+  let qtd_telas = Number(ipt_qtd_telas.value);
+  let qtd_telas_extra = Number(ipt_qtd_telas_extras.value);
+  let valor_telas_extra = qtd_telas_extra * 12.90;
+  let valor_telas;
+  let calculo;
+
+  // Variáveis Parte 3
+  let valor_final;
+  let qtd_telas_total;
+  let div_telas;
+
+  // Variáveis Adicionais
+  let download = ipt_download.value;
+  let mensagem_desconto;
+  let acrescimo;
+  let porcentagem;
+  let valor_completo;
+
+  //-------- Recebimento de Valores --------
+
+  // Recebimento dos Valores Parte 1
+  if (qualidade == '720p') {
+      valor_base = 15;
+    } else if (qualidade == '1080p') {
+      valor_base = 20;
+    } else if (qualidade == '4k') {
+      valor_base = 25;
+  };
+
+  // Recebimento dos Valores Parte 2
+  if (qtd_telas <= 2) {
+      valor_telas = 10;
+    } else if (qtd_telas <= 4) {
+      valor_telas = 20;
+    } else if (qtd_telas) {
+      valor_telas = 30;
+  };
+
+  //-------- Cálculos --------
+
+  // Calculo da Parte 2
+  calculo = (valor_telas + valor_telas_extra);
+
+  // Calculo da Parte 3
+  valor_final = (calculo + valor_base);
+  qtd_telas_total = (qtd_telas + qtd_telas_extra);
+  div_telas = (valor_final / qtd_telas_total);
+
+  //-------- Parte 4 --------
+
+  // Recebimento de Valores Parte 4
+  if (dowload = 'sim') {
+    acrescimo = (qtd_telas_total + 5);
+    porcentagem = 1 + (acrescimo / 100);
+    mensagem_desconto = `Você optou por fazer download e por isso sua conta irá subir em ${acrescimo}%`;
+  } else if (dowload = 'não') {
+    porcentagem = 0.9;
+    mensagem_desconto = `Você optou por não fazer download e por isso sua conta será reduzida em 10%`;
+  }
+
+  // Calculo da Parte 4
+  valor_completo = (valor_final * porcentagem);
+  div_telas = (valor_completo / qtd_telas_total);
+
+  //-------- Exibição dos dados --------
+
+  div_mensagem.innerHTML = `
+    ${mensagem}${valor_base.toFixed(2)} <br>
+    O valor das telas do seu plano é R$${calculo.toFixed(2)} <br>
+    ${mensagem_desconto}<br>
+    Valor final: R$${valor_completo.toFixed(2)} <br>
+    Se quiser dividir fica R$${div_telas.toFixed(2)} para cada!
+  `;
+}
+</script>

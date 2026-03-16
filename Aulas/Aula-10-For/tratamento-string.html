@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt_sala">
+    <button onclick="exibir()"> Exibir Resumo </button>
+    <br>
+    <div id="resultado">
+
+    </div>
+</body>
+<script>
+    function exibir() {
+        let sala = ipt_sala.value;
+        let curso;
+        let turma;
+        let semestre;
+
+        let contemCco = sala.includes("CCO"); // Devolve boleano
+        let indiceCco = sala.indexOf("CCO"); // Índice de onde começa a string, -1 se não tem
+
+        let teste = sala.substring(2,5); //
+        turma = sala.substring(4,5); // O segundo valor é excludente
+        curso = sala.substring(1,4); // Ou seja, se colocar 4 vai até o 3
+        inicio = sala.substring(6,10);
+        semestre = sala.substring(0,1);
+
+        resultado.innerHTML = `
+        ContemCCO: ${contemCco} <br>
+        IndiceCCO: ${indiceCco} <br>
+        Teste Substring: ${teste} <br>
+        Você é do curso de ${curso}, da turma ${turma}, e iniciou em ${inicio}. No ${semestre}° Semestre.
+        `
+    }
+</script>
+</html>

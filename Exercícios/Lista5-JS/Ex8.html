@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 8</title>
+</head>
+<body>
+    <h1>Meta de Economia</h1>
+    <p>Você Está no Caminho Certo?</p>
+    <label for="id_meta">Meta: </label>
+    <input type="text" id="id_meta" placeholder="Qual sua meta? ">
+    <br><br>
+    <label for="id_guardado">Guardado: </label>
+    <input type="text" id="id_guardado" placeholder="Quanto tem guardado? ">
+    <br><br>
+    <button onclick="meta_economica()"> Analisar Economia </button>
+    <br><br>
+    <div id="id_resultado"></div>
+</body>
+<script>
+    function meta_economica() {
+        let meta = Number(id_meta.value);
+        let guardado = Number(id_guardado.value);
+        let diferenca = guardado - meta;
+        let falta = meta - guardado;
+
+        if (diferenca == 0) {
+            id_resultado.innerHTML = `Parabéns, meta alcançada!`;
+        } else if (diferenca > 0) {
+            id_resultado.innerHTML = `Parabéns, meta alcançada! <br>Meta ultrapassada em R$${diferenca}`;
+        } else if (diferenca < 0) {
+            id_resultado.innerHTML = `Força! Ainda em busca da meta! Falta R$${falta}`;
+        } else {
+            id_resultado.innerHTML = `Valores inválidos!`;
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Ex.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <title>Economia com Bilhete Único</title>
+</head>
+<body>
+    <div class="container2">
+        <div>
+            <p>Qual o valor da passagem?</p> <br>
+            <input type="text" id="id_passagem">
+            <br> <br>
+            <p>Qual a quantidade de passagens por mês?</p> <br>
+            <input type="text" id="id_qtdmes">
+        </div>
+        <div>
+            <button onclick="custo_mensal()">Ver Economia</button>
+        </div>
+    </div>
+</body>
+<script>
+    function custo_mensal() {
+        let passagem = Number(id_passagem.value);
+        let qtdmes = Number(id_qtdmes.value);
+        let economia = ((passagem/2)*qtdmes);
+
+        alert("Você economizará R$" + economia + " por mês, onde " + economia + " é o valor economizado.");
+    }
+</script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Exercício 1</title>
+</head>
+<body>
+    <div class="container">
+        <div class="content-title">
+            <h1>Sistema de Avaliação</h1>
+            <p>Dê a sua nota para o atendimento!</p>
+        </div>
+        <div class="content-input">
+            <label for="id_nota">Digite a nota do atendimento:</label>
+            <br>
+            <input type="text" id="id_nota" placeholder="Insira aqui...">
+            <br><br>
+            <button onclick="avaliacao()"> Avaliar atendimento </button>
+            <br>
+            <div id="id_mensagem"></div>  
+        </div>
+
+    </div> 
+</body>
+<script>
+    function avaliacao() {
+        let nota = Number(id_nota.value);
+
+        if (nota < 0 || nota > 10) {
+            id_mensagem.innerHTML = `<p>Nota inválida!</p>`
+        } else if (nota >= 0 && nota < 5) {
+            id_mensagem.innerHTML = `<p>Não aprovado!</p>`
+        } else if (nota == 6 || nota == 5) {
+            id_mensagem.innerHTML = `<p>Neutro.</p>`
+        } else if (nota > 6) {
+            id_mensagem.innerHTML = `<p>Aprovado!</p>`
+        }
+    }
+</script>
+</html>

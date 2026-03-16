@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 12</title>
+</head>
+<body>
+    <h1>Ligar ou não o elevador?</h1>
+    <p>Descubra se o elevador poderá ser ativado de acordo com o peso!</p>
+    <label for="id_peso_elevador">Peso Total: </label>
+    <input type="text" id="id_peso_elevador" placeholder="Insira peos atual:">
+    <br><br>
+    <button onclick="ligar()"> Ligar Elevador </button>
+    <br>
+    <h3 id="mensagem"></h3>
+</body>
+<script>
+    function ligar() {
+        let peso = Number(id_peso_elevador.value);
+
+        if (peso >= 500) {
+            mensagem.innerHTML = `Alguém precisa descer do elevador`;
+            console.log("Passei por aqui!");
+        } else {
+            mensagem.innerHTML = `Elevador vai se mover`;
+        }
+    }
+</script>
+</html>

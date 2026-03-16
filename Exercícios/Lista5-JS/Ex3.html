@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+</head>
+<body>
+    <h1>Sensação Térmica</h1>
+    <p>Descubra como o corpo humano percebe certa temperatura!</p>
+    <br>
+    <label for="id_temp">Temp°: </label>
+    <input type="text" id="id_temp" placeholder="Digite uma temperatura: ">
+    <br><br>
+    <button onclick="analise()"> Analisar Temperatura </button>
+    <br>
+    <h3 id="id_resultado"></h3>
+</body>
+<script>
+    function analise() {
+        let temp = Number(id_temp.value);
+
+        if (temp <= 14) {
+            id_resultado.innerHTML = `Congelante`;
+        } else if (temp <= 21) {
+            id_resultado.innerHTML = `Com Frio`;
+        } else if (temp <= 24) {
+            id_resultado.innerHTML = `Confortável`;
+        } else if (temp <= 31) {
+            id_resultado.innerHTML = `Com Calor`;
+        } else if (temp > 31){
+            id_resultado.innerHTML = `Calor escaldante`;
+        } else {
+            id_resultado.innerHTML = ``;
+        }
+    }
+</script>
+</html>

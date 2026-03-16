@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Teste Personalidade</title>
+</head>
+
+<body id="cor_fundo">
+
+    <div class="css-style">
+        <input id="id_inteligencia" placeholder="De 0 a 10 sua inteligencia"> <br><br>
+        <input id="id_coragem" placeholder="De 0 a 10 sua coragem"><br><br>
+        <input id="id_sensibilidade" placeholder="De 0 a 10 sua sensibilidade"><br><br>
+        <input id="id_temperamento" placeholder="De 0 a 10 sua temperamento"><br><br>
+        <button onclick="analisar()">Quem você é?</button>
+        <div id="id_resultado"></div>
+    </div>
+
+
+</body>
+<script>
+    function analisar() {
+        let resultado = ""
+        let inteligencia = Number(id_inteligencia.value)
+        let coragem = Number(id_coragem.value)
+        let sensibilidade = Number(id_sensibilidade.value)
+        let temperamento = Number(id_temperamento.value)
+
+        if (inteligencia >= 8 && coragem >= 7 && temperamento <= 6) {
+            resultado = "florzinha"
+        } else if (sensibilidade >= 8 && temperamento <= 5) {
+            resultado = "lindinha"
+        } else if (coragem >= 8 && temperamento >= 7) {
+            resultado = "docinho"
+        } else if (inteligencia >= sensibilidade && inteligencia > coragem) {
+            resultado = "florzinha"
+        } else if (sensibilidade > inteligencia && sensibilidade > coragem) {
+            resultado = "lindinha"
+        } else {
+            resultado = "docinho"
+        }
+
+        if (resultado == "florzinha") {
+            id_resultado.innerHTML = `<img src="https://media1.tenor.com/m/C87bn-H-1bcAAAAd/florzinha-blossom.gif" alt=""> <br><br> <p style= "color: red">florzinha</p>`
+            cor_fundo.style.backgroundColor = "pink"
+        } else if (resultado == "lindinha") {
+            id_resultado.innerHTML = `<img src="https://media1.tenor.com/m/jm-6cwg7bYYAAAAC/bubbles-the-powerpuff-girls.gif" alt=""> <br><br><p style= "color: blue">lindinha</p>`
+            cor_fundo.style.backgroundColor = "lightblue"
+
+
+        } else if (resultado == "docinho") {
+            id_resultado.innerHTML = `<img src="https://media1.tenor.com/m/0L2w-2XB9H8AAAAC/powerpuff-girls-the-powerpuff-girls.gif" alt=""><br><br><p style= "color: green">docinho</p>`
+            cor_fundo.style.backgroundColor = "lightgreen"
+
+        }
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+</script>
+<style>
+
+</style>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 5</title>
+</head>
+<body>
+    <h1>Cálculo da Conta de Luz</h1>
+    <p>Verifique o valor da sua conta de luz!</p>
+    <label for="id_kwh">Qtd de KWh: </label>
+    <input type="text" id="id_kwh" placeholder="Digite qtd de klw/mes">
+    <br><br>
+    <button onclick="calculo()"> Calcular conta de luz </button>
+</body>
+<script>
+    function calculo() {
+        let kwh = Number(id_kwh.value);
+        let valor_conta = kwh * 0.85;
+
+        if (kwh < 100) {
+            valor_conta = valor_conta * 0.9;
+            alert(`O valor da conta é de ${valor_conta}.`)
+        } else {
+            alert(`O valor da conta é de ${valor_conta}.`)
+        }
+    }
+</script>
+</html>

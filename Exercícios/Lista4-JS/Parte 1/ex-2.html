@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+</head>
+<body>
+    <h1>Consumo Anual de Refrigerante</h1>
+    <p>Verifique a quantidade de latinhas que você bebe por ano!</p>
+    <label for="id_qtd">Latinhas/dia: </label>
+    <input type="text" id="id_qtd" placeholder="Quantas bebe por dia? ">
+    <br><br>
+    <button onclick="calcule_latinhas_ano()"> Quantos refris? </button>
+    <h3 id="id_resultado"></h3>
+</body>
+<script>
+    function calcule_latinhas_ano() {
+        let latinhas = Number(id_qtd.value);
+        let total = latinhas * 365;
+        let total_decimal = total.toFixed(2);
+
+        if (total < 500) {
+            id_resultado.innerHTML = `Você toma ${total_decimal} latinhas por ano!`;
+        } else {
+            id_resultado.innerHTML = `Cuidado com a diabetes!`;
+        }
+    }
+</script>
+</html>

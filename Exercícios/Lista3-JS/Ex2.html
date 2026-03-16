@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Ex.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <title>Dividindo a Pizza</title>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <p>Quantidade de Amigos</p> <br>
+            <input type="text" id="id_amigos">
+            <br>
+            <p>Valor da pizza</p> <br>
+            <input type="text" id="valor_pizza">   
+        </div>
+        <div>
+           <button onclick="valorp()">#lovepizza</button> 
+        </div>
+    </div>
+</body>
+<script>
+    function valorp() {
+        let amigos = Number(id_amigos.value);
+        let valor = Number(valor_pizza.value);
+        let valorD = (valor/amigos);
+
+        alert("Cada um dos " + amigos + " amigos vai pagar R$" + valorD + ", onde " + amigos + " é a quantidade de amigos e " + valorD + " o valor calculado por pessoa.")
+    }
+</script>
+</html>

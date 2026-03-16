@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo Condicionais</title>
+</head>
+<body>
+    <!-- label -> Leva o cursor para a caixinha do id -->
+    <label for="id_qtd_pets">Quantos Pets?</label>
+    <input type="text" id="id_qtd_pets" placeholder="Quantos pets você tem?">
+    <br>
+    <label for="id_idade">Idade:</label>
+    <input type="text" id="id_idade" placeholder="Digite sua idade">
+    <button onclick="calcular()"> Calcular </button>
+    <br><br>
+    <h3 id="id_resultado"></h3>
+    <p id="id_resultado_pet"></p>
+</body>
+<script>
+    // > Maior
+    // < Menor
+    // >= Maior ou igual
+    // <= Menor ou igual
+    // == Igual
+    // != Diferente
+
+    // Usar console.log para identificar o que o programa leu
+
+    function calcular() {
+        let idade = Number(id_idade.value);
+        let qtd_pets = Number (id_qtd_pets.value)
+        
+        if(idade < 18) {
+            console.log('Entrei no if');
+            id_resultado.innerHTML = "Você é menor de idade, não vota!!!";    
+        } else {
+            id_resultado.innerHTML = "Você é maior de idade, pode votar!!!";
+        }
+
+        if (qtd_pets > 3) {
+            id_resultado_pet.innerHTML = "Você tem muitos pets." + "<br> Fim!!!"
+        }
+
+    }
+</script>
+</html>

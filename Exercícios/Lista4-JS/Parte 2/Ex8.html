@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 8</title>
+</head>
+<body>
+    <h1>Peso Médio no Elevador</h1>
+    <p>Verifique se o elevador irá se mover!</p>
+    <label for="id_homens">Qtd de Homens: </label>
+    <input type="text" id="id_homens" placeholder="Insira qtd de homens:">
+    <br><br>
+    <label for="id_mulheres">Qtd de Mulheres: </label>
+    <input type="text" id="id_mulheres" placeholder="Insira qtd de mulheres:">
+    <br><br>
+    <button onclick="peso()"> Analisar Peso </button>
+    <br>
+    <h3 id="id_mensagem"></h3>
+    <h3 id="id_mensagem2" style="color: rgb(57, 57, 221);"></h3>
+</body>
+<script>
+    function peso() {
+        let qtd_mulheres = Number(id_mulheres.value);
+        let qtd_homens = Number(id_homens.value);
+        let peso_m = (qtd_mulheres * 60);
+        let peso_h = (qtd_homens * 80);
+        let peso_total = peso_m + peso_h;
+
+        if (peso_total > 800) {
+            id_mensagem.innerHTML = `Este elevador suporta 800 Kg e o peso estimado desta lotação é de ${peso_total}kg.`;
+            id_mensagem2.innerHTML = `Será necessário que alguém desça para que o elevador se movimente.`;
+        } else {
+            id_mensagem.innerHTML = `Este elevador suporta 800 Kg e o peso estimado desta lotação é de ${peso_total}kg.`;
+            id_mensagem2.innerHTML = ``;
+        }
+    }
+</script>
+</html>

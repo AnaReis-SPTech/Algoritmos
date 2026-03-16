@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Exercício 3</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content-title">
+            <h1>Preço do Bilhete Único</h1>
+            <p>Simulador do preço da passagem de bilhete único!</p>
+        </div>
+        <div class="content-input">
+            <label for="id_tipo">Qual tipo de passageiro você é?</label> <br>
+            <select name="tipo_passageiro" id="id_tipo">
+                <option value="Idoso/PNE">Idoso/PNE</option>
+                <option value="Estudante">Estudante</option>
+                <option value="Comum">Comum</option>
+            </select>
+            <br><br>
+            <label for="id_passagem">Qual passagem deseja pegar?</label> <br>
+            <select name="tipo_passagem" id="id_passagem">
+                <option value="Passagem Única">Passagem Única</option>
+                <option value="Passagem Integrada">Passagem Integrada</option>
+            </select>
+            <br>
+            <div id="id_mensagem"></div>
+        </div>
+        <button onclick="simular()"> Simular Preço </button>
+    </div>
+</body>
+<script>
+    function simular() {
+        let passagem = id_passagem.value;
+        let tipo = id_tipo.value;
+        let resultado;
+        let preco_unico = 4.40;
+        let preco_integrada = 5.90;
+
+        if (tipo == "Idoso/PNE") {
+            resultado = `Sua passagem é gratuita!`;
+        } else if (tipo == "Estudante" && passagem == "Passagem Única") {
+            preco_unico = preco_unico / 2;
+            resultado = `O preço da sua passagem é de R$${(preco_unico.toFixed(2))}`;
+        } else if (tipo == "Estudante" && passagem == "Passagem Integrada") {
+            preco_integrada = preco_integrada / 2;
+            resultado = `O preço da sua passagem é de R$${(preco_integrada.toFixed(2))}`;
+        } else if (tipo == "Comum" && passagem == "Passagem Única") {
+            resultado = `O preço da sua passagem é de R$${preco_unico.toFixed(2)}`;
+        } else if (tipo == "Comum" && passagem == "Passagem Integrada") {
+            resultado = `O preço da sua passagem é de R$${preco_integrada.toFixed(2)}`;
+        }
+
+        id_mensagem.innerHTML = resultado;
+    }
+</script>
+</html>

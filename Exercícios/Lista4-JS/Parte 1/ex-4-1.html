@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4.1</title>
+</head>
+<body>
+    <h1>Divisão Justa da Pizza (Com estilo)</h1>
+    <p>Verifique se vocês vão pedir pizza!</p>
+    <label for="id_valor_pizza">Pizza: </label>
+    <input type="text" id="id_valor_pizza" placeholder="Digite o valor da pizza:">
+    <br><br>
+    <label for="id_qtd_amigos">Amigos: </label>
+    <input type="text" id="id_qtd_amigos" placeholder="Digite a qtd de amigos:">
+    <br><br>
+    <button onclick="vai_rolar()"> Rolar a Pizza? </button>
+    <br>
+    <p id="id_resultado" style="color: rgb(211, 27, 27);"></p>
+</body>
+<script>
+    function vai_rolar() {
+        let valor_pizza = Number(id_valor_pizza.value);
+        let qtd_amigos = Number(id_qtd_amigos.value);
+        let total = valor_pizza / qtd_amigos;
+        let total_decimal = total.toFixed(2);
+        
+        if (total <= 20) {
+            id_resultado.innerHTML = `Cada amigo vai pagar R$${total_decimal} pela pizza`;
+        } else {
+            id_resultado.innerHTML = `<i><b>Deu ruim! Pizza muito cara!</b></i>`;
+        }
+    }
+</script>
+</html>

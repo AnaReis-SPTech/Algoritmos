@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Exercício 4</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content-title">
+            <h1>Autenticação Segura</h1>
+            <p>Confira se voê tem acesso ao banco Melete!</p>
+        </div>
+        <div class="content-input">
+            <label for="id_login">Login: </label>
+            <input type="text" id="id_login" placeholder="Insira aqui..."> <br>
+            <label for="id_senha">Senha: </label>
+            <input type="password" id="id_senha" placeholder="Insira aqui..."> <br>
+            <label for="id_informacao">Informação Pessoal: </label>
+            <input type="password" id="id_informacao" placeholder="Insira aqui..."> <br>
+            <div id="id_mensagem"></div>
+        </div>
+        <button onclick="autenticacao()"> Autenticar </button>
+    </div>
+</body>
+<script>
+    function autenticacao() {
+        let login = id_login.value;
+        let senha = id_senha.value;
+        let info = id_informacao.value;
+
+        if (login == 'ana' && senha == 'braga' && info == '1949' || info == 'louro josé') {
+            resultado = `Usuário autenticado`;
+        } else {
+            resultado = `Falha na autenticação`;
+        }
+
+        id_mensagem.innerHTML = resultado;
+    }
+</script>
+
+</html>

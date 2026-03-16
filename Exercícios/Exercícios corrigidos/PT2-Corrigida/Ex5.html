@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex5</title>
+</head>
+<body>
+    <span>Nota: </span>
+    <input type="text" id="id_nota"> <br>
+    <button onclick="opiniaoVo()">Opinião da Vó</button> <br>
+    <button onclick="opiniaoMae()">Opinião da mãe</button> <br>
+    <div id="div_mensagem"></div>
+</body>
+<script>
+    function opiniaoVo() {
+        div_mensagem.innerHTML = "Muito bem, que neto inteligente, porque tirou " + id_nota.value
+    }
+
+    function opiniaoMae() {
+        div_mensagem.innerHTML = "Não fez mais que tua obrigação com essa nota " + id_nota.value
+    }
+</script>
+</html>

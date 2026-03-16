@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 7</title>
+</head>
+<body>
+    <h1>Consumo de Calorias</h1>
+    <p>Verifique se sua Dieta Está Saudável?</p>
+    <br>
+    <label for="id_pao">Qts pães/dia: </label>
+    <input type="text" id="id_pao" placeholder="Qts pãos você come? ">
+    <br><br>
+    <label for="id_bolacha">Qtds bolachas/dia: </label>
+    <input type="text" id="id_bolacha" placeholder="Qts bolachas você come? ">
+    <br><br>
+    <label for="id_choc">E achocolatados/dia: </label>
+    <input type="text" id="id_choc" placeholder="E achocolatados? ">
+    <br><br>
+    <button onclick="calorias()"> Verificar Calorias </button>
+    <br><br>
+    <div id="id_resultado"></div>
+</body>
+<script>
+    function calorias() {
+        let pao = Number(id_pao.value);
+        let bolacha = Number(id_bolacha.value);
+        let choc = Number(id_choc.value);
+
+        let cal_pao = pao * 50;
+        let cal_bolacha = bolacha * 80;
+        let cal_choc = choc * 70;
+
+        let total_cal = cal_pao + cal_bolacha + cal_choc;
+
+        if (total_cal < 200) {
+            id_resultado.innerHTML = `Parabéns, vai ficar em forma!`;
+        } else if (total_cal <=400) {
+            id_resultado.innerHTML = `Cuidado, vai ficar menos saudável !`;
+        } else if (total_cal > 400) {
+            id_resultado.innerHTML = `Alerta crítico de saúde !!!`;
+        } else {
+            id_resultado.innerHTML = `Valor Inválido!`;
+        }
+    }
+</script>
+</html>

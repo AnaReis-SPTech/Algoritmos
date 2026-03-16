@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="stylesheet" href="Ex.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <title>Calculadora Básica</title>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <p>Digite 2 números:</p>
+            <br>
+            <input type="text" id="id_num1">
+            <br> <br>
+            <input type="text" id="id_num2">
+            <br>
+        </div>
+        <div>
+            <p>Qual operação quer fazer?</p> <br>
+            <button onclick="soma()">+</button>
+            <button onclick="sub()">-</button>
+            <button onclick="div()">÷</button>
+            <button onclick="multi()">x</button>
+            <br> <br>
+            <p id="resultado">0</p>    
+        </div>
+        
+    </div>
+</body>
+<script>
+    function soma() {
+        let num1 = Number(id_num1.value);
+        let num2 = Number(id_num2.value);
+        let soma = num1 + num2;
+
+        resultado.innerHTML = `${soma}`;
+    }
+
+    function sub() {
+        let num1 = Number(id_num1.value);
+        let num2 = Number(id_num2.value);
+        let subtracao = num1 - num2;
+
+        resultado.innerHTML = `${subtracao}`;
+    }
+
+    function multi() {
+        let num1 = Number(id_num1.value);
+        let num2 = Number(id_num2.value);
+        let multiplicacao = num1 * num2;
+
+        resultado.innerHTML = `${multiplicacao }`;
+    }
+
+    function div() {
+        let num1 = Number(id_num1.value);
+        let num2 = Number(id_num2.value);
+        let divisao = num1 / num2;
+
+        resultado.innerHTML = `${divisao}`;
+    }
+</script>
+</html>

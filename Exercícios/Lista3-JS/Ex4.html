@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Ex.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <title>O Ki dos Sayajin's</title>
+</head>
+<body>
+    <div class="container2">
+        <div>
+            <p>Digite seu nome:</p> <br>
+            <input type="text" id="id_nome">
+            <br> <br>
+            <p>Digite seu KI normal:</p> <br>
+            <input type="text" id="id_ki">
+        </div>
+        <div>
+            <button onclick="formas_ki()">Ver KI em cada forma</button>
+        </div>
+    </div>
+</body>
+<script>
+    function formas_ki() {
+        let nome = id_nome.value;
+        let ki = Number(id_ki.value);
+        let ss1 = (ki*50);
+        let ss2 = (ki*100);
+
+        alert("O KI de " + nome + " na forma Super Sayajin é " + ss1 + ".");
+        alert("O KI de " + nome + " na forma Super Sayajin 2 é " + ss2 + ".");
+    }
+</script>
+</html>

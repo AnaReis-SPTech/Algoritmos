@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4</title>
+</head>
+<body>
+    <h1>Avaliação de Peso Infantil</h1>
+    <p>Descubra como está seu peso!</p>
+    <br>
+    <label for="id_peso">Peso(kg): </label>
+    <input type="text" id="id_peso" placeholder="Digite seu peso em quilos: ">
+    <br><br>
+    <button onclick="analise()"> Analisar Peso </button>
+    <br>
+    <h3 id="id_resultado"></h3>
+</body>
+<script>
+    function analise() {
+        let peso = Number(id_peso.value);
+
+        if (peso == 18.3) {
+            id_resultado.innerHTML = `Peso perfeito`;
+        } else if (peso <= 13.5) {
+            id_resultado.innerHTML = `Abaixo do peso `;
+        } else if (peso <= 21.2) {
+            id_resultado.innerHTML = `Peso na média`;
+        } else if (peso > 21.2 ) {
+            id_resultado.innerHTML = `Acima do peso`;
+        } else {
+            id_resultado.innerHTML = `Valor inválido!`;
+        }
+    }
+</script>
+</html>

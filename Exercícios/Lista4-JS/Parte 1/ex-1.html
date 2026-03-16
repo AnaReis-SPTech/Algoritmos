@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+</head>
+<body>
+    <h1>Idade para a Festa</h1>
+    <p>Verifique se você pode ir para a festa!</p>
+    <label for="id_idade">Idade: </label>
+    <input type="text" id="id_idade" placeholder="Digite sua idade:">
+    <button onclick="festa()"> Ir pra festa </button>
+    <h3 id="id_resultado"></h3>
+</body>
+<script>
+    function festa() {
+        let idade = Number(id_idade.value);
+
+        if (idade >= 18) {
+            id_resultado.innerHTML = `#partiuFesta`;
+        } else {
+            id_resultado.innerHTML = `Pedir permissão pro responsável`;
+        }
+    }
+</script>
+</html>

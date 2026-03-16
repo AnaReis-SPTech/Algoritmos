@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 19</title>
+</head>
+<body>
+    <h1>Verifique Ambiente</h1>
+    <p>Descubra se a temperatura está ideal para a conservação de alimentos!</p>
+    <label for="id_temp">Temperatura°: </label>
+    <input type="text" id="id_temp" placeholder="Digite a temperatura: ">
+    <br><br>
+    <button onclick="verificar()"> Verificar Clima </button>
+    <br>
+    <div id="id_mensagem"></div>
+</body>
+<script>
+    function verificar() {
+        let temp = Number(id_temp.value);
+
+        if (temp <= 10) {
+            id_mensagem.innerHTML = `<img src="https://www.naturaldaterra.com.br/_next/image?url=https%3A%2F%2Fnaturalterra.vtexassets.com%2Farquivos%2Fids%2F171239%2FMaca-Red-Unidade.jpg%3Fv%3D639071209638270000%26format%3Dwebp&w=1440&q=75" alt="" width="auto" height="300px">`;
+        } else {
+            id_mensagem.innerHTML = `<img src="https://preview.free3d.com/img/2015/01/1871868319103977115/8ud7bxl1.jpg" alt="" width="auto" height="300px">`;
+        }
+    }
+</script>
+</html>

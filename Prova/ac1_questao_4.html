@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Questão 4</title>
+</head>
+<body>
+   <h2>Questão 4</h2>
+   <span>Quantidade de m³ de gás consumidos:</span>
+   <input type="text" id="input_metros"> <br>
+
+   <span>Tipo de Sistema: "GN" (Gás Natural) ou "GLP" (Gás de Botijão)</span>
+   <input type="text" id="input_sistema"> <br>
+
+   <span>Valor da Taxa de Instalação Fixa em Reais: </span>
+   <input type="text" id="input_taxa"> <br>
+
+   <button onclick="calcular()">Calcular Despesa</button>
+
+   <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+/* Faça sua lógica aqui! Não altere o HTML. */
+
+let simulacao = 0;
+
+function calcular() {
+   // Definição de variáveis
+   let gas_metro = Number(input_metros.value);
+   let gas_sistema = input_sistema.value;
+   let taxa_instalação = Number(input_taxa.value);
+   let valor_base;
+   let custo_total_bruto;
+   let porcentagem_taxa;
+   let nome_sistema;
+
+   // DEfinição de valores segundo a lógica
+   if (gas_sistema == 'GN') {
+      if (gas_metro <= 20) {
+         valor_base = gas_metro * 6;
+         nome_sistema = 'Gás Natural';
+      } else if (gas_metro > 20) {
+         valor_base = gas_metro * 8;
+         nome_sistema = 'Gás Natural';
+      }
+   } else if (gas_sistema == 'GLP') {
+      if (gas_metro <= 20) {
+         valor_base = gas_metro * 5;
+         nome_sistema = 'Gás de Botijão';
+      } else if (gas_metro > 20) {
+         valor_base = gas_metro * 7.50;
+         nome_sistema = 'Gás de Botijão';
+      }
+   };
+
+   // Calculos necessários
+   custo_total_bruto = valor_base + taxa_instalação;
+   porcentagem_taxa = (taxa_instalação * 100) / custo_total_bruto;   
+   simulacao += 1;
+
+   // Exibição da mensagem
+   div_mensagem.innerHTML += `
+   <br>
+   Simulação ${simulacao}: <br>
+   Sistema de ${nome_sistema} - O valor final é R$${custo_total_bruto}. A taxa fixa de R$${taxa_instalação} representou ${porcentagem_taxa}% do total bruto.
+   <br>
+   `;
+}
+</script>

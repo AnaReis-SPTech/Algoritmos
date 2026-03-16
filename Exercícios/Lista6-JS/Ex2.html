@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Exercício 2</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content-title">
+            <h1>Simulador de Preferências</h1>
+            <p>Simule sua perferência de Robervaldo!</p>
+        </div>
+        <div class="content-input">
+            <label for="id_tam_tela">Digite o tamanho da tela:</label>
+            <br>
+            <input type="text" id="id_tam_tela" placeholder="Insira aqui...">
+            <br><br>
+            <label for="id_cor">Digite a cor:</label>
+            <br>
+            <input type="text" id="id_cor" placeholder="Insira aqui...">
+            <div id="id_mensagem"></div>
+        </div>
+        <button onclick="avaliacao()"> Será que ele gosta? </button>
+    </div>
+</body>
+<script>
+    function avaliacao() {
+        let tamanho = Number(id_tam_tela.value);
+        let cor = id_cor.value;
+
+        if (tamanho >= 6.5 && cor == 'Preto' || cor == 'Vermelho' || cor == 'Azul' || cor == 'Prata') {
+            id_mensagem.innerHTML = `<img src="https://cdn.pixabay.com/photo/2016/08/21/19/27/emoticon-1610573_1280.png" alt="Imagem" style="height: auto; width: 150px;">`
+        } else {
+            id_mensagem.innerHTML = `<img src="https://i.pinimg.com/originals/f4/e3/08/f4e3088910aed7dbf38db7a2aa33b280.png" alt="Imagem" style="height: auto; width: 150px;">`
+        }
+    }
+</script>
+
+</html>
