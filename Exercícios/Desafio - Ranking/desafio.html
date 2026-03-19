@@ -21,14 +21,13 @@
         <label for="id_chute1">Digite o 4° Lugar: </label>
         <input type="text" name="4 Lugar" id="id_chute4"> <br>
         <label for="id_chute1">Digite o 5° Lugar: </label>
-        <input type="text" name="5 Lugar" id="id_chute5"> <br>
-        <button onclick="adivinhar()"> Exibir Resultado </button>
+        <input type="text" name="5 Lugar" id="id_chute5"> <br> <br>
+        <button onclick="adivinhar()"> Exibir Resultado </button> <br> <br>
         <div id="resultado"></div>
         <h3 id="final_m"></h3>
-    </div>
+    </div> 
 </body>
 <script>
-    function adivinhar() {
         let acertos = 0;
         let erros = 0;
         let nomes_erro = "";
@@ -39,6 +38,9 @@
         let chute4 = id_chute4.value;
         let chute5 = id_chute5.value;
         let ranking = ["Pinguim", "Tatu", "Macaco", "Caranguejo", "Guaxinim"];
+        let meusCampeoes = [];
+
+    function adivinhar() {
 
         if (ranking[0] == chute1) {
             acertos += 1;
@@ -95,10 +97,101 @@
         }
 
         resultado.innerHTML = `
-        Qtd erros: ${erros} <br>
-        Errei os nomes: ${nomes_erro} <br>
-        Qtd Acertos: ${acertos} <br>
-        Acertei os nomes: ${nomes_acerto}
+        <b>Qtd erros: </b>${erros} <br>
+        <b>Errei os nomes: </b>${nomes_erro} <br>
+        <b>Qtd Acertos: </b>${acertos} <br>
+        <b>Acertei os nomes: </b>${nomes_acerto}
+        `;
+
+        document.querySelector('.container').innerHTML += `
+        <button onclick="proximo()"> Prosseguir </button>
+        `;
+    }
+
+    function proximo() {
+        document.querySelector('.container').innerHTML += `
+        <br><br>
+        <h1>O primeiro colocado é: </h1>
+        <h2 id="id_campeao"></h2>
+        `;
+
+        id_campeao.innerHTML = `${ranking[0].toUpperCase()} 🥇`;
+
+        document.querySelector('.container').innerHTML += `
+        <button onclick="proximoCampeoes()"> Prosseguir </button>
+        `;
+    }
+
+    function proximoCampeoes() {
+        document.querySelector('.container').innerHTML += `
+        <h1>Meus Campeões</h1>
+        <h2>🥇 🥈 🥉</h2>
+        <label for="id_campeoes">Digite o nome do seu campeão: </label>
+        <br>
+        <input type="text" id="id_campeoes">
+        <br><br>
+        <button onclick="adicionar()"> Adicionar </button>
+        <br>
+        <p id="meus_campeoes_msg"></p> <br>
+        `;
+
+        document.querySelector('.container').innerHTML += `
+        <button onclick="proximoBuscar()"> Prosseguir </button>
+        `;
+    }
+
+    function adicionar() {
+        let campeao = id_campeoes.value;
+
+        meusCampeoes.push(campeao);
+
+        meus_campeoes_msg.innerHTML = `<b>Lista: </b> ${meusCampeoes}`;
+
+    }
+
+    function proximoBuscar() {
+        document.querySelector('.container').innerHTML += `
+        <h1>Busca e Pesquisa</h1>
+        <h2></h2>
+        <label for="id_buscar">Busque campeões: </label>
+        <br>
+        <input type="text" id="id_buscar">
+        <br><br>
+        <button onclick="Buscar()"> Buscar </button>
+        <br>
+        <p id="resultado_busca"></p> <br>
+        <div class="fim"></div>
+        `;
+    }
+
+    function Buscar() {
+        let nome_buscado = id_buscar.value;
+        let contem_ranking = ranking.includes(nome_buscado);
+        let contem_meus_campeoes = meusCampeoes.includes(nome_buscado);
+
+        if (contem_ranking && contem_meus_campeoes) {
+
+            resultado_busca.innerHTML = `O campeão <b>${nome_buscado}</b> está em ambas as listas! Tanto no Ranking Oficial, quanto no Ranking do usuário!`;
+
+        } else if (contem_ranking) {
+
+            resultado_busca.innerHTML = `O campeão <b>${nome_buscado}</b> está no Ranking Oficial. Porém não está no Ranking do usuário!`;
+
+        } else if (contem_meus_campeoes) {
+
+            resultado_busca.innerHTML = `O campeão <b>${nome_buscado}</b> está no Ranking do usuário. Porém não está no Ranking Oficial!`;
+
+        } else if (!contem_ranking && !contem_meus_campeoes) {
+
+            resultado_busca.innerHTML = `O campeão <b>${nome_buscado}</b> não está em nenhuma lista!<br>Verifique se digitou o nome corretamente.`;
+
+        }
+
+        // resultado_busca.innerHTML = ``;
+
+        document.querySelector('.fim').innerHTML = `
+        <h3>Fim do Desafio!</h3>
+        <button onclick="location.reload()"> Recomeçar </button>
         `;
     }
 </script>
