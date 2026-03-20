@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laços de Repetição</title>
+</head>
+<body>
+    <button onclick="add()"> Adicionar </button>
+    <div id="resultado"></div>
+</body>
+<script>
+    // Maneira mais comum de fazer laço de repetição - FOR
+    function add(){
+        // define var; condição de parada; ação repetida
+        for (let i = 0; i <= 10; i++) {
+        console.log(`Valor da variável i é: ${i}`);
+        resultado.innerHTML += `Valor da variável i é: ${i} <br>`;
+    }
+    }
+
+    // Com o alert é preciso apertar o botão ok para continuar
+
+    for (let i = 0; i <= 10; i++) {
+        console.log(`Valor da variável i é: ${i}`);
+
+        if (i <= 5) {
+            alert(`Não chegamos no meio, i é: ${i}`);
+        } else {
+            alert(`Passamos do meio meio, i é: ${i}`);
+        }
+    }
+
+// for (parte1; parte2; parte3)
+// for ( roda antes de iniciar o loop; condição de repetição; equivale a última linha )
+</script>
+</html>

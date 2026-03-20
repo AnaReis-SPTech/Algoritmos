@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 5</title>
+</head>
+<body>
+    <h1>Coca-Cola</h1>
+    <h4>Veja a quantidade de coca-colas que você toma!</h4>
+    <label for="id_qtdCoca">Quantas coca-colas você acha que bebeu na vida?</label>
+    <br>
+    <input type="text" id="id_qtdCoca">
+    <br><br>
+    <button onclick="coca_cola()"> Ver a Quantidade </button>
+    <br><br>
+    <h3 id="id_cocas"></h3>
+</body>
+<script>
+    function coca_cola() {
+        id_cocas.innerHTML = ``;
+
+        let qtdCoca = Number(id_qtdCoca.value);
+
+        for (let i = 0; i <= (qtdCoca - 1); i += 1) {
+            id_cocas.innerHTML += `🥤`;
+        }
+    }
+</script>
+</html>

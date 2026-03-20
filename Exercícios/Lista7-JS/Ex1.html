@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+</head>
+<body>
+    <h1>Entrada de Caronas</h1>
+    <p>Esse progama simula a entrada de caronas dentro de um carro!</p>
+    <label for="id_qtdPessoas">Informe a qtd de caronas: </label>
+    <input type="text" id="id_qtdPessoas">
+    <button onclick="Calculo()"> #Partiu Carona </button>
+    <br>
+    <div id="id_resultado"></div>
+</body>
+<script>
+    function Calculo() {
+        id_resultado.innerHTML = ``;
+
+        let qtdPessoas = Number(id_qtdPessoas.value);
+
+        for (let i = 0; i < qtdPessoas; i += 1) {
+
+            if (i == 1) {
+                id_resultado.innerHTML = `Entrou o 1º passageiro (que é o(a) motorista) <br><br>`; 
+            } else if (i <= 5) {
+                id_resultado.innerHTML += `Entrou o ${i}º passageiro <br><br>`; 
+            } else {
+                id_resultado.innerHTML += `O ${i}º passageiro terá que esperar! <br>Terá que esperar ${i - 5} passageiros! <br><br>`;
+            }
+
+        }
+
+    }
+</script>
+</html>
