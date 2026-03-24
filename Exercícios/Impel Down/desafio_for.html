@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invasão de Impel Down</title>
+</head>
+<body>
+    <div class="container">
+        <label for="ipt_qtd_batalhas">Quantidade de Batalhas: </label>
+        <input type="text" id="ipt_qtd_batalhas">
+        <br>
+        <label for="ipt_qtd_marinha">Quantidade de Marinheiros: </label>
+        <input type="text" id="ipt_qtd_marinha">
+        <br>
+        <label for="ipt_qtd_carne">Quantidade de Carne Disponível: </label>
+        <input type="text" id="ipt_qtd_carne">
+        <p>
+            <button onclick="simular()">Simular Batalha</button>
+        </p>
+        <div id="resultado"></div>
+    </div>
+</body>
+
+<script>
+    let frase_final = '';
+    function simular() {
+        let qtdBatalhas = Number(ipt_qtd_batalhas.value);
+        let qtdMarinheiros = Number(ipt_qtd_marinha.value);
+        let qtdCarne = Number(ipt_qtd_carne.value);
+        let energia = 100;
+        let energiaFinal;
+        frase_final = `
+        ----------------------------------------------<br>
+        Quantidade de batalhas: ${qtdBatalhas}<br>
+        Quantidade de marinheiros: ${qtdMarinheiros}<br>
+        Quantidade de carnes: ${qtdCarne}
+        `
+        for (let i = 0; i < qtdBatalhas; i++) {
+            if (energia > 0) {
+                frase_final += `<br>----------------------------------------------<br>
+                <h2>${i + 1}º Batalha Iniciada</h2><br>
+                <b>Quantidade de Energia: ${energia}</b><br>
+                `
+                energia -= 10;
+                energiaFinal = energia - (qtdMarinheiros * 5);
+                if (energiaFinal <= 0 && qtdCarne > 0) {
+                    energiaFinal += 100;
+                    qtdCarne --;
+                    frase_final += `
+                    Resultado: Luffy saiu vitorioso, derrotando ${qtdMarinheiros} marinheiro(s) <br>
+                    <br>
+                    Energia Restante no Final da Batalha: ${energiaFinal}<br>
+                    Carnes Restantes no Final da Batalha: ${qtdCarne}
+                    `
+                }
+            } else if (energia <= 0 && qtdCarne > 0) {
+                energia = 100;
+                qtdCarne --;
+                frase_final += `<br>----------------------------------------------<br>
+                <h2>${i + 1}º Batalha Iniciada</h2><br>
+                <b>Quantidade de Energia: ${energia}</b><br>
+                `
+                energia -= 10;
+            } else if (energia <= 0 && qtdCarne == 0) {
+                frase_final += `
+                ❌ Não é possível iniciar a ${i}º batalha, acabou a carne e a energia.
+                `
+            }
+            
+        }
+            frase_final += `<br>----------------------------------------------<br>`
+            resultado.innerHTML = frase_final;
+    }
+        
+</script>
+</html>
+<!--
+for (let j = 0; j < qtdMarinheiros; j++) {
+                energia -=5;
+                if (energia <= 0 && qtdCarne > 0) {
+                    energia = 100;
+                    qtdCarne -= 1;
+                } else if (energia <= 0 && qtdCarne == 0) {
+                    luffyVitoria = false;
+                }
+                marinhaDerrotados++;
+                
+-->
+
