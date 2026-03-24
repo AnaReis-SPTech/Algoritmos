@@ -28,33 +28,96 @@
         let qtdBatalhas = Number(ipt_qtd_batalhas.value);
         let qtdMarinheiros = Number(ipt_qtd_marinha.value);
         let qtdCarne = Number(ipt_qtd_carne.value);
-        let energia = 100;
-        let energiaFinal;
+        let energia = 100; // Energia inicial do Luffy
+        let energiaFinal; // Energia do Luffy no final das batalhas
+        let indexMorte; // Define para qual marinheiro o Luffy perdeu
+        let energiaMarinheiros = qtdMarinheiros * 5; // Define a energia total dos marinheiros
+        let MarinheirosVivos; // Define a qtd de marinheiros vivos
+        let luffyVitoria;
+        let luffyEstado;
+
+        
         frase_final = `
         ----------------------------------------------<br>
         Quantidade de batalhas: ${qtdBatalhas}<br>
         Quantidade de marinheiros: ${qtdMarinheiros}<br>
         Quantidade de carnes: ${qtdCarne}
         `
+
         for (let i = 0; i < qtdBatalhas; i++) {
-            if (energia > 0) {
+        // For de batalha, repete i * qtd_batalhas
+
+            if (energia > 10) {
+            // If que só é válido se a energia ao entrar na vatalha for > 10
+            // Ou seja, se o Luffy tiver energia suficiente para entrar em uma batalha
+
+                if (i != 0) { 
+                // Se for a 1° batalha ele não subtrai 10, caso contrário sim
+                // Garante que a 1° batalha comece com 100 de energia
+                    energia -= 10;
+                }
+
                 frase_final += `<br>----------------------------------------------<br>
                 <h2>${i + 1}º Batalha Iniciada</h2><br>
                 <b>Quantidade de Energia: ${energia}</b><br>
                 `
-                energia -= 10;
-                energiaFinal = energia - (qtdMarinheiros * 5);
+                
+                energiaFinal = energia - energiaMarinheiros;
+                // Tira a qtd de energia total da batalha contra os marinheiros
+
                 if (energiaFinal <= 0 && qtdCarne > 0) {
-                    energiaFinal += 100;
-                    qtdCarne --;
+                // Define que se a energia do Luffy acabar durante a batalha e ele tiver carne, a energia recupera a qtd necessária de acordo com as carnes para derrotar os marinheiros
+    
+                    energiaFinal += qtdCarne * 100;
+                    (energiaMarinheiros - energia) / 5;
+
+                    energiaFinal -= (MarinheirosVivos * 5);
+
+                    if (energiaFinal >= 0) {
+                    // Garante o calculo da sobra de carne se o Luffy sobreviver
+                    
+                        if (energiaFinal >= 100) {
+                        // Garante que se o Luffy ainda tiver + 2 dígitos de energia, a carne restante seja calculada
+
+                            qtdCarne = (energiaFinal.toString()).substring(0,1);
+                            energiaFinal -= qtdCarne;
+
+                        } else if (energiaFinal.legth < 100) {
+                            // Garante que se a qtd de energia do Luffy foi < 100
+                            qtdCarne = 0;
+                        }
+
+                    } else {
+
+                    // Define que se a qtd de energia for < 0 o Luffy perdeu.
+                        luffyVitoria = false;
+
+                    }
+
+                    if (luffyVitoria) {
+                        luffyEstado = `saiu vitorioso`
+                    } else {
+                        luffyEstado = `foi derrotado`
+                    };
+                    
+
                     frase_final += `
-                    Resultado: Luffy saiu vitorioso, derrotando ${qtdMarinheiros} marinheiro(s) <br>
+                    Resultado: Luffy ${luffyEstado}, derrotando ${qtdMarinheiros} marinheiro(s) <br>
                     <br>
                     Energia Restante no Final da Batalha: ${energiaFinal}<br>
                     Carnes Restantes no Final da Batalha: ${qtdCarne}
                     `
+
+                } else if (energiaFinal < 0) {
+                // Define a rodada em que o Luffy foi derrotado
+                    (energiaMarinheiros - energia) / 5;
+                    indexMorte = qtdMarinheiros - MarinheirosVivos;
+
+                    // Se o Luffy for derrotado, define quantos Marinheiros ele conseguiu derrotar
+                    qtdMarinheiros = qtdMarinheiros - MarinheirosVivos;
                 }
-            } else if (energia <= 0 && qtdCarne > 0) {
+
+            } else if (energia <= 10 && qtdCarne > 0) {
                 energia = 100;
                 qtdCarne --;
                 frase_final += `<br>----------------------------------------------<br>
@@ -62,7 +125,9 @@
                 <b>Quantidade de Energia: ${energia}</b><br>
                 `
                 energia -= 10;
+
             } else if (energia <= 0 && qtdCarne == 0) {
+            // Define que se o Luffy não tiver energia nem Carne ele não pode mais iniciar batalhas.
                 frase_final += `
                 ❌ Não é possível iniciar a ${i}º batalha, acabou a carne e a energia.
                 `
@@ -87,4 +152,3 @@ for (let j = 0; j < qtdMarinheiros; j++) {
                 marinhaDerrotados++;
                 
 -->
-
