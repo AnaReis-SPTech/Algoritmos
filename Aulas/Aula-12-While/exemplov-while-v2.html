@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laço de Repetição - While V2</title>
+</head>
+<body>
+    <div id="resultado"></div>
+</body>
+<script>
+    // Prompt é um alert com input 
+    let numero_digitado = prompt("Tente acertar esse número: ");
+    let numero_secreto = 42;
+
+    while (numero_digitado != numero_secreto) {
+        numero_digitado = prompt("Tente outro: ");
+    }
+
+    alert("Parabéns, é isso!");
+
+    resultado.innerHTML = `O número secreto era: ${numero_secreto}`;
+
+    // O while é recomendado para quando não tem como saber quantas voltas o usuário vai dar;
+    // Já o for é recomendado para quando eu sei a qtd de voltas máximas;
+</script>
+</html>

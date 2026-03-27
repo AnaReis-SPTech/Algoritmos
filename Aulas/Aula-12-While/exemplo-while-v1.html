@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laço de Repetição - While</title>
+</head>
+<body>
+    <div id="resultado_contador"></div>
+    <br><br>
+    <div id="resultado_i"></div>
+</body>
+<script>
+    let contador = 0;
+
+    // Enquanto (while) a condição não for falsa, o laço de repetição vai continuar;
+    while (contador <= 9) {
+        resultado_contador.innerHTML += `Contador é: ${contador + 1} <br>`;
+        contador ++;
+        // contador = contador + 1
+        // contador += 1
+    }
+
+    //Para que o laço de repetição pare, "i" deve ser <= a 9;
+    for (let i = 0; i <= 9; i++) {
+        resultado_i.innerHTML += `O i é: ${i + 1} <br>`;
+    }
+
+</script>
+</html>

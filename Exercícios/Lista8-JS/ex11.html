@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parte 1 - Ex11</title>
+</head>
+<body>
+    <h1>Tabuada Colorida</h1>
+    <p>Crie um programa o qual:</p>
+    <br>
+    <label for="slt_tabuada">Selecione a tabuada: </label>
+    <select name="tabuada" id="slt_tabuada">
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+    </select>
+    <br><br>
+    <label for="ipt_numero">Digite o número: </label>
+    <input id="ipt_numero">
+    <br><br>
+    <button onclick="tabuada()"> Ver Tabuada </button>
+    <br><br>
+    <div id="id_resultado">
+    </div>
+</body>
+<script>
+    function tabuada() {
+        let num_maximo = ipt_numero.value;
+        let tabuada = slt_tabuada.value;
+        let resultado;
+        let contador = 0;
+
+        id_resultado.innerHTML = ``;
+
+        while (contador <= num_maximo) {
+            resultado = tabuada * contador;
+
+            
+            if (contador % 2 == 0) {
+                id_resultado.innerHTML += ` <p style="color: blue;">${contador}x${tabuada} = ${resultado}</p>`;
+            } else {
+                id_resultado.innerHTML += ` <p style="color: red;">${contador}x${tabuada} = ${resultado}</p>`;
+            }
+            contador ++;
+        }
+    }
+</script>
+</html>

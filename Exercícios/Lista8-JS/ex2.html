@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parte 1 - Ex2</title>
+</head>
+<body>
+    <h1> Frase Repetitiva</h1>
+    <p>Crie um programa o qual: </p>
+    <br>
+    <button onclick="repetir()"> Diga algo sobre a matéria de Algoritmos </button>
+    <br><br>
+    <div id="resultado"></div>
+</body>
+<script>
+    function repetir() {
+        let numero_vezes = 0;
+
+        resultado.innerHTML = ``;
+
+        while (numero_vezes < 7) {
+            resultado.innerHTML += `A professora Giuliana ensina muito bem <br>`;
+            numero_vezes ++;
+        }
+    }
+</script>
+</html>

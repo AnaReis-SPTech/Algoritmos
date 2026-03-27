@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parte 1 - Ex8</title>
+</head>
+<body>
+    <h1>Papagaio Falante</h1>
+    <p>Crie um programa o qual:</p>
+    <br>
+    <label for="ipt_numero">Digite um número: </label>
+    <input id="ipt_numero" placeholder="Digite um número..."></input>
+    <br><br>
+    <label for="ipt_frase">Digite uma frase: </label>
+    <input id="ipt_frase" placeholder="Digite uma frase"></input>
+    <br><br>
+    <button onclick="repetir()"> Papagaio </button>
+    <br><br>
+    <div id="resultado"></div>
+</body>
+<script>
+    function repetir () {
+        let vezes_papagaio = ipt_numero.value;
+        let frase_rep = ipt_frase.value
+        let contador = 0;
+
+        while (contador < vezes_papagaio) {
+            alert(`${contador + 1}° - ${frase_rep}\n`);
+            contador ++;
+        }
+    }
+</script>
+</html>
