@@ -5,24 +5,199 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD - Sanji</title>
 </head>
+<style>
+    body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+        font-family: Calibri;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 2%;
+        border-radius: 5px;
+        background-color: #f8f9fa;
+        gap: 50px;
+    }
+
+    .texto {
+        font-size: 15px;
+        text-align: center;
+        max-width: 630px;
+    }
+
+    .texto>h2 {
+        color: black;
+        font-size: 25px;
+        margin: 0px;
+    }
+
+    .container>img {
+        width: 600px;
+        height: auto;
+    }
+
+    .inputs {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        height: min-content;
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .buttons>button {
+        border: none;
+        background-color: #e21a63;
+        color: white;
+        font-weight: 700;
+        width: 200px;
+        height: 35px;
+        border-radius: 25px;
+    }
+
+    .buttons>button:hover {
+        border: 2px solid #e21a63;
+        background-color: white;
+        color: #e21a63;
+        transition: all ease-in-out 0.3s;
+        transform: scale(1.05);
+    }
+
+    .campo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .campo>input {
+        padding-left: 15px;
+        width: 200px;
+        height: 20px;
+        border-radius: 20px;
+        border: 1px solid black;
+    }
+
+    .campo>input:hover {
+        transition: all ease-in-out 0.3s;
+        background-color: rgb(228, 230, 245);
+    }
+
+    .buttons>button:active {
+        transform: scale(0.9);
+        transition: all ease-in-out 0.3s;
+    }
+
+    body>.texto {
+        text-align: left;
+        align-self: center;
+    }
+
+    span {
+        color: #e21a63;
+        font-weight: 700;
+        max-width: 550px;
+    }
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+</style>
 <body>
-    <h1>CRUD do Sanji</h1>
-    <p> Sanji pediu sua ajuda para desenvolver um programa onde ele possa cadastrar as comidas que ele cozinhou e saber se a quantidade é o suficiente para satisfazer o Luffy e sobrar para a tripulação.</p>
-    <label for="ipt_cadastrar">Cadastre uma comida: </label>
-    <input type="text" id="ipt_cadastrar">
-    <br><br>
-    <button onclick="Cadastro()"> Cadastrar</button>
-    <button onclick="Quantidade()"> Verificar Quantidade </button>
-    <p id="id_resultado"></p>
-    <h2>Pesquisar Comida</h2>
-    <p>Pesquise as comidas dentro da sua lista.</p>
-    <label for="id_pesquisa">Qual comida deseja buscar? </label>
-    <input type="text" id="id_pesquisa">
-    <br><br>
-    <button onclick="pesquisar()"> Pesquisar Comida </button>
-    <button onclick="Estoque()"> Exibir Estoque </button>
-    <p id="id_resultado_pesquisa"></p>
-    <p id="id_frase_estoque"></p>
+    <div class="texto">
+        <h1>Desafio One Piece - CRUD do Sanji</h1>
+        <p> Sanji pediu sua ajuda para desenvolver um programa onde ele possa cadastrar as comidas que ele cozinhou e saber se a quantidade é o suficiente para satisfazer o Luffy e sobrar para a tripulação.</p>
+    </div>
+    <div class="container">
+        <img src="https://moodle.sptech.school/pluginfile.php/33547/mod_assign/intro/Gemini_Generated_Image_3u9o2s3u9o2s3u9o.png" alt="Imagem do Sanji cozinhando">
+        <div class="card">
+            <div class="texto">
+                <h2> Cadastrar Comida</h2>
+                <p>Cadatre comidas no seu estoque!</p>
+            </div>
+            <div class="inputs">
+                <div class="campo">
+                    <label for="ipt_cadastrar">Cadastre uma comida: </label>
+                    <input type="text" id="ipt_cadastrar">
+                </div>
+                <div class="buttons">
+                    <button onclick="Cadastro()"> Cadastrar</button>
+                    <button onclick="Quantidade()"> Verificar Quantidade </button>
+                </div>
+                <span id="id_resultado"></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="texto">
+                <h2>Pesquisar Comida</h2>
+                <p>Pesquise as comidas dentro da sua lista.</p>
+            </div>
+            <div class="inputs">
+                <div class="campo">
+                    <label for="id_pesquisa">Qual comida deseja buscar? </label>
+                    <input type="text" id="id_pesquisa">
+                </div>
+                <div class="buttons">
+                    <button onclick="pesquisar()"> Pesquisar Comida </button>
+                    <button onclick="Estoque()"> Exibir Estoque </button>
+                </div>
+                <span id="id_resultado_pesquisa"></span>
+                <span id="id_frase_estoque"></span>
+            </div>
+        </div>
+        <div class="card">
+            <div class="texto">
+                <h2>Renomear Comida</h2>
+                <p>Renomeie as comidas cadastradas para outro de sua preferência!</p>
+            </div>
+            <div class="inputs">
+                <div class="campo">
+                    <label for="id_nome_antigo">Qual comida deseja renomear? </label>
+                    <input type="text" id="id_nome_antigo">
+                </div>
+                <div class="campo">
+                    <label for="id_nome_novo">Insira o novo nome: </label>
+                    <input type="text" id="id_nome_novo">
+                </div>
+                <div class="buttons">
+                    <button onclick="Renomear()"> Alterar Nome </button>
+                </div>
+                <p id="id_frase_renomeado"></span>
+            </div>
+        </div>
+        <div class="card">
+            <div class="texto">
+                <h2>Deletar Comida</h2>
+                <p>Exclua as comidas que já foram consumidas!</p>
+            </div>
+            <div class="inputs">
+                <div class="campo">
+                    <label for="id_remover_comida">Digite a comida que sedeja deletar: </label>
+                    <input type="text" id="id_remover_comida">
+                </div>
+                <div class="buttons">
+                    <button onclick="Remover()"> Remover Comida </button>
+                </div>
+                <p id="id_frase_remover"></p>
+            </div>
+        </div>
+    </div>
 </body>
 <script>
 
@@ -41,15 +216,15 @@
         qtd_comidas = comidas.length;
 
         if (qtd_comidas <= 3 && qtd_comidas >= 0) {
-            id_resultado.innerHTML = `Desse jeito, o Luffy devora até o navio.`;
+            id_resultado.innerHTML = `<p>Desse jeito, o Luffy devora até o navio.</p>`;
         } else if (qtd_comidas <= 7) {
-            id_resultado.innerHTML = `O comilão do Luffy não vai deixar sobrar nenhuma comida.`;
+            id_resultado.innerHTML = `<p>O comilão do Luffy não vai deixar sobrar nenhuma comida.</p>`;
         } else if (qtd_comidas <= 10) {
-            id_resultado.innerHTML = `Assim, talvez sobre um pouco para a tripulação.`;
+            id_resultado.innerHTML = `<p>Assim, talvez sobre um pouco para a tripulação.</p>`;
         } else if (qtd_comidas > 10) {
-            id_resultado.innerHTML = `Desse jeito vai ter comida para todo mundo e ainda consigo guardar um pouco para a senhorita Nami!`;
+            id_resultado.innerHTML = `<p>Desse jeito vai ter comida para todo mundo e ainda consigo guardar um pouco para a senhorita Nami!</p>`;
         } else {
-            id_resultado.innerHTML = `Qtd de comidas inválida!`;
+            id_resultado.innerHTML = `<p>Qtd de comidas inválida!</p>`;
         }
     }
 
@@ -111,6 +286,49 @@
     }
 
 // PARTE 3 --------------------------------------------------
+    function Renomear() {
+        qtd_comidas = comidas.length;
+        let nome_antigo = id_nome_antigo.value;
+        let nome_novo = id_nome_novo.value;
+        let contem_comida = comidas.includes(nome_antigo);
+        let frase_renomear = ``;
+
+        if (contem_comida) {
+            for (let i = 0; i < qtd_comidas; i++) {
+                if (comidas[i] == nome_antigo) {
+                    comidas[i] = (`${nome_novo}`)
+                }
+            }
+            frase_renomear = `A comida ${nome_antigo} foi alterada para ${nome_novo}`;
+        } else {
+            frase_renomear = `A comida ${nome_antigo} não foi encontrada no estoque.`;
+        }
+
+        id_frase_renomeado.innerHTML = `${frase_renomear}`;
+    }
+
+    function Remover() {
+        qtd_comidas = comidas.length;
+        let remover_comida = id_remover_comida.value;
+        let contem_comida = comidas.includes(remover_comida);
+        let nova_lista_comidas = [];
+
+        if (contem_comida) {
+            for (let i = 0; i < qtd_comidas; i++) {
+                // Colocar o remover aqui dentro
+                if (comidas[i] != remover_comida) {
+                    nova_lista_comidas.push(comidas[i]);
+                }
+            }
+
+            comidas = nova_lista_comidas;
+            frase_remover = `A comida ${remover_comida} foi removida do estoque.`;
+        } else {
+            frase_remover = `A comida ${remover_comida} não está no estoque.`;
+        }   
+        console.log(comidas);
+        id_frase_remover.innerHTML = `${frase_remover}`;
+    }
 
 
 </script>
