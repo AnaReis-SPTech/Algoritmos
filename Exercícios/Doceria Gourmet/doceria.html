@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrega 2 - AC2</title>
+</head>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #intro {
+        max-width: 50vw;
+        color: midnightblue;
+    }
+
+    #conteudo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50vw;
+        height: fit-content;
+        padding: 2% 0px;
+        background-color: white;
+        box-shadow: 2px 0px 10px rgba(0,0,0,0.5);
+        border-radius: 50px;
+    }
+
+    #conteudo > h2, h3 {
+        color: midnightblue;
+    }
+
+    #conteudo > #id_frase_final {
+        max-width: 30vw;
+    }
+
+    .doce > input {
+        border: 1px solid black;
+        width: 10vw;
+        height: 3vh;
+        border-radius: 20px;
+        padding-left: 10px;
+    }
+
+    #conteudo > #id_lista > p {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: midnightblue;
+        color: white;
+        width: 30vw;
+        height: 10vh;
+        border-radius: 10px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    #id_frase_final {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    #botao {
+        width: 14vw;
+        height: 7vh;
+        background-color: midnightblue;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+
+</style>
+<body>
+    <div id="intro">
+        <h1>Doceria Gourmet</h1>
+        <p>Dori Valdossin é dono de uma doceria em São Paulo, onde a sua especialidade são os doces gourmets.</p>
+    </div>
+    <div id="conteudo">
+        <h2>Quantidade e Preço</h2>
+        <span>Insira a quantidade de itens e o valor a serem vendidos!</span>
+        <div class="doce">
+            <h3>Macarrons</h3>
+            <label for="ipt_qtd_macarrons">Qtd: </label>
+            <input type="text" id="ipt_qtd_macarrons">
+            <label for="ipt_preco_macarrons">Preço (Uni): </label>
+            <input type="text" id="ipt_preco_macarrons">
+        </div>
+        <br>
+        <div class="doce">
+            <h3>Brigadeiro Gourmet</h3>
+            <label for="ipt_qtd_brigadeiros">Qtd: </label>
+            <input type="text" id="ipt_qtd_brigadeiros">
+            <label for="ipt_preco_brigadeiros">Preço (Uni): </label>
+            <input type="text" id="ipt_preco_brigadeiros">
+        </div>
+        <br>
+        <div class="doce">
+            <h3>Cupcakes</h3>
+            <label for="ipt_qtd_cupcakes">Qtd: </label>
+            <input type="text" id="ipt_qtd_cupcakes">
+            <label for="ipt_preco_cupcakes">Preço (Uni): </label>
+            <input type="text" id="ipt_preco_cupcakes">
+        </div>
+        <br>
+        <div class="doce">
+            <h3>Chessecakes</h3>
+            <label for="ipt_qtd_cheesecakes">Qtd: </label>
+            <input type="text" id="ipt_qtd_cheesecakes">
+            <label for="ipt_preco_cheesecakes">Preço (Uni): </label>
+            <input type="text" id="ipt_preco_cheesecakes">
+        </div>
+        <br><br>
+        <button onclick="verificar()" id="botao"> Verificar Vendas </button>
+        <div id="id_lista"></div>
+        <p id="id_frase_final"></p>
+    </div>
+</body>
+<script>
+    function verificar() {
+        let qtd_macarrons = Number(ipt_qtd_macarrons.value);
+        let preco_macarrons = Number(ipt_preco_macarrons.value);
+    
+        let qtd_brigadeiros = Number(ipt_qtd_brigadeiros.value);
+        let preco_brigadeiros = Number(ipt_preco_brigadeiros.value);
+
+        let qtd_cupcakes = Number(ipt_qtd_cupcakes.value);
+        let preco_cupcakes = Number(ipt_preco_cupcakes.value);
+    
+        let qtd_cheesecakes = Number(ipt_qtd_cheesecakes.value);
+        let preco_cheesecakes = Number(ipt_preco_cheesecakes.value);
+
+        let qtd_vendas = (qtd_macarrons + qtd_brigadeiros + qtd_cupcakes + qtd_cheesecakes);
+        let total_vendas = ((qtd_macarrons*preco_macarrons) + (qtd_brigadeiros*preco_brigadeiros) + (qtd_cupcakes*preco_cupcakes) + (qtd_cheesecakes*preco_cheesecakes));
+
+        let lista = ``;
+        let frase_final = ``;
+
+        let contador = 1;
+
+        if (qtd_macarrons < 0 && qtd_brigadeiros < 0 && qtd_cupcakes < 0 && qtd_cheesecakes < 0 && preco_macarrons < 0 && preco_brigadeiros < 0 && preco_cupcakes < 0 && preco_cheesecakes < 0 ) {
+            alert(`Valores inseridos inválidos. \nTente Novamente!`);
+            window.location.reload();
+        }
+
+        for (let i = 0; i < qtd_macarrons; i++) {
+            lista += `<p>Venda ${contador} - <img src="https://www.pngall.com/wp-content/uploads/2/Macaron-PNG.png" alt="Macarron" style="width: 50px; height: auto;"> - ${preco_macarrons}</p>`;
+            contador++;
+        }
+
+        for (let i = 0; i < qtd_brigadeiros; i++) {
+            lista += `<p>Venda ${contador} - <img src="https://cdn.sodiedoces.com.br/wp-content/uploads/2022/10/28145241/cafe_615x500px.png" alt="Brigadeiro Gourmet" style="width: 50px; height: auto;"> - ${preco_brigadeiros}</p>`;
+            contador++;
+        }
+
+        for (let i = 0; i < qtd_cupcakes; i++) {
+            lista += `<p>Venda ${contador} - <img src="https://img.pikbest.com/png-images/20240515/white-icing-fantasy-cupcake-isolated-on-transparent-background_10565766.png!sw800" alt="Cupcakes" style="width: 50px; height: auto;"> - ${preco_cupcakes}</p>`;
+            contador++;
+        }
+
+        for (let i = 0; i < qtd_cheesecakes; i++) {
+            lista += `<p>Venda ${contador} - <img src="https://img.pikbest.com/png-images/20250520/strawberry-cheesecake-slice-dessert-sweet-creamy-treat-red-berry-topping_11723033.png!sw800" alt="Cheesecakes" style="width: 50px; height: auto;"> - ${preco_cheesecakes}</p>`;
+            contador++;
+        }
+        
+        id_lista.innerHTML = lista;
+
+        id_frase_final.innerHTML = `Com a quantidade de ${qtd_macarrons} Macarons, ${qtd_brigadeiros} Brigadeiros, ${qtd_cupcakes} Cupcakes e ${qtd_cheesecakes} Cheesecakes, a venda totalizará R$${total_vendas.toFixed(2)}`;
+    }
+</script>
+</html>
