@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Número da Sorte</title>
+</head>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: black;
+        background-color: white;
+    }
+
+    div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    input {
+        border: 1px solid black;
+        width: 100px;
+        height: 20px;
+        background-color: white;
+        border-radius: 50px;
+        color: black;
+        transition: all ease-in-out 0.3s;
+        padding-left: 15px;
+    }
+
+    input:hover {
+        transform: scale(1.03);
+        background-color: rgb(231, 231, 231);
+    }
+
+    button {
+        font-family: Arial, Helvetica, sans-serif;
+        border: 2px solid black;
+        width: 200px;
+        height: 35px;
+        background-color: white;
+        border-radius: 50px;
+        color: black;
+        text-transform: uppercase;
+        font-weight: 800;
+        transition: all ease-in-out 0.3s;
+    }
+
+    button:hover {
+        border: 2px solid white;
+        background-color: black;
+        color: white;
+        transform: scale(1.05);
+    }
+</style>
+<body>
+    <h1>Sortear Número</h1>
+    <p id="controle"></p>
+    <br>
+    <div>
+        <label for="ipt_nome">Digite seu nome: </label>
+        <input type="text" id="ipt_nome">
+    </div>
+    <br>
+    <div>
+        <label for="ipt_num">Digite seu Número da Sorte: </label>
+        <input type="text" id="ipt_num">
+    </div>
+    <br>
+    <button onclick="sortear()"> Sortear </button>
+    <br>
+    <div id="id_resultado" style="font-size: 25px;"></div>
+</body>
+<script>
+    let qtd_sorteios = 0;
+    function sortear() {
+        id_resultado.innerHTML = ``;
+        let nome = ipt_nome.value;
+        let num_sorte = Number(ipt_num.value);
+        let numero_aleatorio = Math.random();
+        let min = 1;
+        let max = 10;
+        let num_sorteado = parseInt(numero_aleatorio * (max - min + 1) + min);
+
+        if (num_sorte < 1 || num_sorte > 10) {
+            alert(`Digite um número entre 1 à 10. \nTente Novamente!`);
+            window.location.reload();
+        } else if (num_sorte == 0 || nome == "") {
+            alert(`Por favor preencha o formulário completo!`);
+            window.location.reload();
+        }
+
+        if (num_sorte == num_sorteado) {
+            id_resultado.innerHTML = `Parabéns, ${nome} você foi sorteado(a) após ${qtd_sorteios} sorteios!`;
+            qtd_sorteios = 0;
+        }
+
+        controle.innerHTML = `Meu número: ${num_sorte}<br>Número Sorteado: ${num_sorteado}`;
+
+        qtd_sorteios++
+    }
+</script>
+</html>

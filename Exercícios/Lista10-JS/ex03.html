@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sortear Dados</title>
+</head>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: black;
+        background-color: white;
+    }
+
+    div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        background-color: white;
+        color: white;
+        width: 100px;
+        height: 100px;
+        border-radius: 10px;
+    }
+
+        button {
+        font-family: Arial, Helvetica, sans-serif;
+        border: 2px solid black;
+        width: 200px;
+        height: 35px;
+        background-color: white;
+        border-radius: 50px;
+        color: black;
+        text-transform: uppercase;
+        font-weight: 800;
+        transition: all ease-in-out 0.3s;
+    }
+
+    button:hover {
+        border: 2px solid white;
+        background-color: black;
+        color: white;
+        transform: scale(1.05);
+    }
+</style>
+<body>
+    <h1>Sorteio de Dados</h1>
+    <p>Sorteie um resultado de um dado de 20 lados (D20)</p>
+    <button onclick="sorteio()"> Sortear </button>
+    <br><br>    
+    <div id="id_resultado"></div>
+</body>
+<script>
+    function sorteio() {
+        let numero_aleatorio = Math.random();
+        let min = 1;
+        let max = 20;
+        let numero_com_intervalo = parseInt(numero_aleatorio * (max - min + 1) + min);
+
+        id_resultado.innerHTML = `
+            <p style="font-size: 35px;">${numero_com_intervalo}</p>
+        `
+        id_resultado.style.backgroundColor = 'black';
+    }
+</script>
+</html>

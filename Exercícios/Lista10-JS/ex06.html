@@ -1,0 +1,82 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sortear Momento</title>
+</head>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: black;
+        background-color: white;
+    }
+
+    button {
+        font-family: Arial, Helvetica, sans-serif;
+        border: 2px solid black;
+        width: 300px;
+        height: 35px;
+        background-color: white;
+        border-radius: 50px;
+        color: black;
+        text-transform: uppercase;
+        font-weight: 800;
+        transition: all ease-in-out 0.3s;
+    }
+
+    button:hover {
+        border: 2px solid white;
+        background-color: black;
+        color: white;
+        transform: scale(1.05);
+    }
+
+    div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    div > img {
+        width: auto;
+        height: 300px;
+    }
+</style>
+<body>
+    <h1>Sorteio de Momento do Dia</h1>
+    <p>Sorteie um momento aleatório do dia.</p>
+    <button onclick="sorteio()"> Sortear Momento do Dia </button>
+    <br><br>    
+    <div id="id_resultado"></div>
+</body>
+<script>
+    function sorteio() {
+        let min = 0;
+        let max = 24;
+        let numero_com_intervalo = parseInt(Math.random() * (max - min) + min);
+
+        if (numero_com_intervalo <= 11) {
+            id_resultado.innerHTML = `
+            Bom dia, flor do dia, são ${numero_com_intervalo}h!
+            <img src="https://app.bomdiaporfavor.com.br/wp-content/uploads/2023/08/mensagem-bom-dia-gif-3.gif" alt="">
+            `;
+        } else if (numero_com_intervalo <= 17) {
+            id_resultado.innerHTML = `
+            Boa tarde, já vai tarde! São ${numero_com_intervalo}h!<br><br>
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgpAOUkfQvvN4fCZ6rpktCYpj8GlaMEix-H7GScRsIzVO_rU0UtPuWN6m6dGxAcjf4ggm09L-FWEZTAEQgIcBBUX09VTmp4aRx6lGXTa8ZoNdsd7UCXB3GyIiscrF1Ap-f9OMaQOoJldit-/s1600/bom-tarde7.gif" alt="">
+            `;
+        } else if (numero_com_intervalo <= 23) {
+            id_resultado.innerHTML = `
+            Bom dia, flor do dia, são ${numero_com_intervalo}h! <br><br>
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhOT4hYQAx-6hUWi7-TQQqmifQnsrBCB2z4LSogyBvVHA4c2p6GNg-uOGlzT_yPu8-4ZwQ53M3TlZZPqd8SLb6NZq67l34oZQtjHU2BLryg4MQPCwpj4POBdjJXEzZ3xUelh7vgGdSIAn8/s1600/BNOITE4.gif" alt="">
+            `;
+        }
+    }
+</script>
+</html>

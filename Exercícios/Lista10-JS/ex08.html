@@ -1,0 +1,98 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sortear Notas</title>
+</head>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: black;
+        background-color: white;
+    }
+
+        button {
+        font-family: Arial, Helvetica, sans-serif;
+        border: 2px solid black;
+        width: 500px;
+        height: 35px;
+        background-color: white;
+        border-radius: 50px;
+        color: black;
+        text-transform: uppercase;
+        font-weight: 800;
+        transition: all ease-in-out 0.3s;
+    }
+
+    button:hover {
+        border: 2px solid white;
+        background-color: black;
+        color: white;
+        transform: scale(1.05);
+    }
+
+    div {
+        font-size: 20px;
+    }
+</style>
+<body>
+    <h1>Sorteio de Notas e Frequência</h1>
+    <p>Sorteie uma nota e uma frequencia aleatória para aluno e descubra sua situação.</p>
+    <button onclick="funcao_nota()"> Gerar uma nota de aluno entre 0 e 10 </button> <br>
+    <div id="id_nota"></div> <br>
+    <button onclick="funcao_freq()"> Gerar uma frequência de aluno entre 0 e 100 </button> <br>
+    <div id="id_freq"></div> <br>
+    <button onclick="funcao_situacao()"> Ver Situação </button> <br>
+    <div id="id_sit"></div> <br>
+</body>
+<script>
+    let frequencia;
+    let nota_atual;
+
+    function funcao_nota() {
+        let min = 0;
+        let max = 10.01;
+        
+        let nota = Math.random() * (max - min) + min;
+        id_nota.innerHTML = `
+        <b>Nota:</b> ${nota.toFixed(2)} <br>
+        `;
+
+        id_sit.innerHTML = ``;
+
+        nota_atual = nota
+    }
+    
+    function funcao_freq() {
+        let min_freq = 0;
+        let max_freq = 100.01;
+    
+        let freq = (Math.random()) * (max_freq - min_freq) + min_freq;
+        id_freq.innerHTML = `
+        <b>Frequência:</b> ${freq.toFixed(2)}<br>
+        `;
+
+        id_sit.innerHTML = ``;
+
+        frequencia = freq
+    }
+    
+    function funcao_situacao() {
+        if (frequencia <= 49.99 || nota_atual <= 5.99) {
+            id_sit.innerHTML = `<span style='text-transform: uppercase;
+        color: crimson;'>Reprovado!</span>`;
+        } else {
+            id_sit.innerHTML = `<span style='text-transform: uppercase;
+        color: green;'>Aprovado!</span>`;
+        }
+
+        if (frequencia == undefined || nota_atual == undefined) {
+            id_sit.innerHTML = `Sorteie a nota e a frequência antes!!!`;
+        }
+    }
+</script>
+</html>

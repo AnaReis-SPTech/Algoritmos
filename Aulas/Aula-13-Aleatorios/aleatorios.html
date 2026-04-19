@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aleatórios</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // Gera um número de 0 a 1, onde 0 é inclusivo e 1 exclusivo
+    let aleatorio = Math.random();
+    // aleatorio = aleatorio * 10;
+    // aleatorio = aleatorio.toFixed(2);
+    console.log(`Número aleatório: ${aleatorio}`);
+
+    let min = 3;
+    let max = 7;
+
+    let aleatorio_teste = Math.random();
+    console.log(`Número teste: ${aleatorio_teste}`);
+    let aleatorio_intervalo = parseInt(aleatorio_teste * (max - min + 1) + min);
+    console.log(`Número aleatório com itervalor: ${aleatorio_intervalo}`);
+
+    let min_teste = 0;
+    let max_teste = 100;
+    let aleatorio_dois = Math.random();
+    let aleatorio_dois_formatado = parseInt(aleatorio_dois * (max_teste - min_teste + 1) + min_teste)
+    console.log(`Número teste: ${aleatorio_dois_formatado}`);
+
+    while (aleatorio_dois_formatado != 7) {
+        console.log(`Erro, a resposta é 7  e o número sorteado foi: ${aleatorio_dois_formatado}`)
+        let numero_sorteado = parseInt(aleatorio_dois_formatado)
+    }
+</script>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sortear Time</title>
+</head>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: white;
+        background-color: black;
+    }
+    div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    div > img {
+        width: 150px;
+        height: auto;
+    }
+    button {
+        font-family: Arial, Helvetica, sans-serif;
+        border: 2px solid white;
+        width: 200px;
+        height: 35px;
+        background-color: black;
+        border-radius: 50px;
+        color: white;
+        text-transform: uppercase;
+        font-weight: 800;
+        transition: all ease-in-out 0.3s;
+    }
+    button:hover {
+        border: 2px solid black;
+        background-color: white;
+        color: black;
+        transform: scale(1.05);
+    }
+</style>
+<body>
+    <h1>Sorteie um Time</h1>
+    <p>Sorteio um dos 4 maiores times de São Paulo</p>
+    <button onclick="sorteio()"> Sortear Time </button>
+    <div id="id_resultado"></div>
+</body>
+<script>
+    function sorteio() {
+        let numero_aleatorio = Math.random();
+        let min = 1;
+        let max = 4;
+        let numero_com_intervalo = parseInt(numero_aleatorio * (max - min + 1) + min);
+
+        if (numero_com_intervalo == 1) {
+            id_resultado.innerHTML = `
+                <h1>1. Corinthians</h1>
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEho6aSLROEAaKqY0ujULYzOJR38tVPIis6p9kzC2eO8j56UOwxn2aMSSXl10SJOqcjDxQPiSswRPTke9JoxO1aRibx657fg6jAQs8gXAl-eyubvTDgO_3FvzItVrAeFDuB4zDsFH2068ho/s0-e90-rw/Sport_Club_Corinthians_Paulista_flag.gif" alt="Corinthians">
+            `;
+            document.body.style.backgroundColor = 'black';
+            document.body.style.color = 'white';
+        } else if (numero_com_intervalo == 2) {
+            id_resultado.innerHTML = `
+                <h1>2. Palmeiras</h1>
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh2OBGg_Bj7kCq1vZtjHOrFtaZddORksPFX9Xm2aGUrAEMd_rfR6ywfHQBf05mWUFb_qZUjDCK_buUTIU3RWYnAumyj5s6CSKUUX4oDuKVkctmCLWRX7QG1m5JuQebicaH-nJxOFpkhdK0/s0-e90-rw/Sociedade_Esportiva_Palmeiras_flag.gif" alt="Palmeiras">
+            `;
+            document.body.style.backgroundColor = 'green';
+            document.body.style.color = 'white';
+        } else if (numero_com_intervalo == 3) {
+            id_resultado.innerHTML = `
+                <h1>3. São Paulo</h1>
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj6dbjHGM9K6-btd2ZGOJQpq7_HKD2sb-vWb4BxRWp1d_q5IZFxUHP4ZpjgBGtLfiwUJysbT-OUoAkXcib7VerToogfS9-1Wf79b08WcX41olhwjkRiNFz9geQ1y9bMFSqgihBxTt06KHU/s0-e90-rw/S%25C3%25A3o_Paulo_FC_flag.gif" alt="São Paulo">
+            `;
+            document.body.style.backgroundColor = 'white';
+            document.body.style.color = 'red';
+        } else if (numero_com_intervalo == 4) {
+            id_resultado.innerHTML = `
+                <h1>4. Santos</h1>
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEirHThbscWbYIZ8djbG7rrCGM5naNSo_GOVyPSMWSOSJA542Zk7b2peGBiIQxPNwEXH0otaYzvs76Ecl79K8R90e5ikbJJcasJH4-1Z875yUjhSq_1lgbpJafPz23kxXFG5eAkXKFUij4Y/s0-e90-rw/Santos_FC_flag.gif" alt="Santos">
+            `;
+            document.body.style.backgroundColor = 'white';
+            document.body.style.color = 'black';
+        }
+    }
+</script>
+</html>
