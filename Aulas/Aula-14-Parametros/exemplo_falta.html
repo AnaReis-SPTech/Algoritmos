@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo Faltas</title>
+</head>
+<body>
+    <input type="text" id="ipt_falta">
+    <button onclick="lancar_faltas()"> Lançar </button>
+    <div id="id_resultado"></div>
+</body>
+<script src="funcoes_uteis.js"></script>
+<script>
+    let faltas = [];
+
+    function lancar_faltas() {
+        let falta_do_dia = Number(ipt_falta.value);
+        faltas.push(falta_do_dia);
+
+        // Ele importa a função do scrpt funcoes_uteis trocando o parâmetro (lista) para (faltas);
+        let mediaFaltas = calcular_media(faltas);
+
+        id_resultado.innerHTML = `A média das faltas é: ${mediaFaltas}`;
+        // let soma = 0;
+
+        // for (let id = 0; id < array.length; id++) {
+        //     soma += faltas[i]
+        // }
+
+        // let media = soma / faltas.length;
+    }
+</script>
+</html>

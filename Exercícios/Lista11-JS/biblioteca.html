@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca</title>
+</head>
+<body>
+    <h1>Biblioteca de Funções</h1>
+    <p>Página de testes para todas as funções js.</p>
+    <div>
+        <div style="font-size: 20px;"><b>Somar</b></div>
+        <input type="text" id="ipt_sum1" placeholder="Digite 1° num: ">
+        <br>
+        <input type="text" id="ipt_sum2" placeholder="Digite 2° num: ">
+        <br>
+        <button onclick="botao_soma()"> Somar </button>
+        <div id="id_soma"></div>
+    </div>
+    <br>
+    <br>
+    <div>
+        <div style="font-size: 20px;"><b>Calcular Distância</b></div>
+        <input type="text" id="ipt_x1" placeholder="Digite x1: ">
+        <br>
+        <input type="text" id="ipt_y1" placeholder="Digite y1: ">
+        <br>
+        <input type="text" id="ipt_x2" placeholder="Digite x2: ">
+        <br>
+        <input type="text" id="ipt_y2" placeholder="Digite y2: ">
+        <br>
+        <button onclick="botao_distancia()"> Calcular Distância </button>
+        <div id="id_distancia"></div>
+    </div>
+    <br><br>
+    <div>
+        <div style="font-size: 20px;"><b>Converter Tempo</b></div>
+        <input type="text" id="ipt_segundos" placeholder="Digite quantos segundos: ">
+        <br>
+        <button onclick="botao_calcular_tempo()"> Calcular Tempo </button>
+        <div id="id_tempo"></div>
+    </div>
+    <br>
+    <br>
+    <div>
+        <div style="font-size: 20px;"><b>Verificar Número Primo</b></div>
+        <input type="text" id="ipt_numero" placeholder="Digite um número: ">
+        <br>
+        <button onclick="botao_primo()"> Verificar Primo </button>
+        <div id="id_primo"></div>
+    </div>
+    <br>
+    <br>
+    <div>
+        <div style="font-size: 20px;"><b>Calcular Fatorial</b></div>
+        <input type="text" id="ipt_fatorial" placeholder="Digite um número: ">
+        <br>
+        <button onclick="botao_fatorial()"> Fatorar Número </button>
+        <div id="id_fatorial"></div>
+    </div>
+    <br>
+    <br>
+    <div>
+        <div style="font-size: 20px;"><b>Calcular Média Simples</b></div>
+        <input type="text" id="ipt_media_simples" placeholder="Digite um número: ">
+        <br>
+        <button onclick="botao_adicionar_vetor()"> Adicionar Número </button>
+        <br>
+        <div id="id_vetor_media"></div>
+        <br>
+        <button onclick="media_simples()"> Calcular Média </button>
+        <br>
+        <h2 id="id_media_simples"></h2>
+    </div>
+    <br>
+    <br>
+    <div>
+        <div style="font-size: 20px;"><b>Calcular Média Ponderada</b></div>
+        <input type="text" id="ipt_media" placeholder="Digite um número: ">
+        <br>
+        <button onclick="botao_adicionar_vetor_media()"> Adicionar Número </button>
+        <br>
+        <div id="id_vetor_media_ponderada"></div>
+        <br>
+        <input type="text" id="ipt_peso" placeholder="Digite um peso para o número: ">
+        <br>
+        <button onclick="botao_adicionar_vetor_peso()"> Adicionar Peso </button>
+        <br>
+        <div id="id_vetor_peso"></div>
+        <br>
+        <button onclick="media_ponderada()"> Calcular Média </button>
+        <br>
+        <h2 id="id_media_ponderada"></h2>
+    </div>
+</body>
+<script src="funcoes.js"></script>
+<script>
+    let numeros_media = [];
+    let numeros_media_ponderada = [];
+    let numeros_peso = [];
+
+    function botao_soma() {
+        let sum1 = Number(ipt_sum1.value);
+        let sum2 = Number(ipt_sum2.value);
+    
+        let soma = somar(sum1, sum2);
+    
+        id_soma.innerHTML = `Resultado da soma: ${soma}`;
+    }
+
+    function botao_distancia() {
+        let x1 = Number(ipt_x1.value);
+        let y1 = Number(ipt_y1.value);
+        let x2 = Number(ipt_x2.value);
+        let y2 = Number(ipt_y2.value);
+
+        let distancia = calcularDistancia(x1, x2, y1, y2)
+
+        id_distancia.innerHTML = `Distancia: ${distancia}`;
+    }
+    
+    function botao_calcular_tempo() {
+        let qtd_tempo = Number(ipt_segundos.value);
+
+        let tempo_string = converterParaHoraMinutoSegundo(qtd_tempo);
+
+        id_tempo.innerHTML = `Qtd de Tempo: ${tempo_string}`;
+    }
+
+    function botao_primo() {
+        let numero = Number(ipt_numero.value);
+
+        let validacao_primo = ePrimo(numero);
+
+        id_primo.innerHTML = `  ${validacao_primo}`
+    }
+
+    function botao_fatorial() {
+        let numero = Number(ipt_fatorial.value);
+
+        let resultado_fatorial = calcularFatorial(numero);
+
+        id_fatorial.innerHTML = `Número fatoriado: ${resultado_fatorial}`;
+    }
+
+    function botao_adicionar_vetor() {
+        let numero = Number(ipt_media_simples.value);
+
+        numeros_media.push(numero);
+        
+        id_vetor_media.innerHTML = `${numeros_media}`;
+    }
+
+    function media_simples() {
+        let resultado_media_simples;
+
+        resultado_media_simples = calcularMedia(numeros_media);
+        resultado_media_simples = Number(resultado_media_simples).toFixed(2);
+        
+        id_media_simples.innerHTML = `Média: ${resultado_media_simples}`;
+    }
+
+    function botao_adicionar_vetor_media() {
+        let numero = Number(ipt_media.value);
+
+        numeros_media_ponderada.push(numero);
+
+        id_vetor_media_ponderada.innerHTML = `Vetor: ${numeros_media_ponderada}`;
+    }
+
+    function botao_adicionar_vetor_peso() {
+        let numero = Number(ipt_peso.value);
+
+        numeros_peso.push(numero);
+
+        id_vetor_peso.innerHTML = `Vetor: ${numeros_peso}`;
+    }
+
+    function media_ponderada() {
+        let resultado_media;
+
+        resultado_media = calcularMediaPonderada(numeros_media_ponderada, numeros_peso);
+
+        resultado_media = Number(resultado_media).toFixed(2);
+        
+        id_media_ponderada.innerHTML = `Média Ponderada: ${resultado_media}`;
+    }
+</script>
+</html>

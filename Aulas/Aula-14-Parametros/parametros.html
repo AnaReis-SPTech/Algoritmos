@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parâmetros</title>
+</head>
+<body>
+    <button onclick="add(5)"> Adicionar 5 </button>
+    <button onclick="add(1)"> Adicionar 1 </button>
+    <button onclick="add(2)"> Adicionar 2 </button>
+    <button onclick="add(3)"> Adicionar 3 </button>
+    <button onclick="add(7)"> Adicionar 7 </button>
+    <button onclick="add()"> Adicionar 500 </button>
+    <div id="id_resultado"></div>
+</body>
+<script>
+    let num = 0;
+
+    function add(num_add = 500) {
+        console.log(`O que é num_add: ${num_add}`);
+
+        num += num_add;
+        id_resultado.innerHTML = `O valor é: ${num}`
+    }
+
+    // function add1() {
+    //     num += 1;
+    //     id_resultado.innerHTML = `O valor é: ${num}`
+    // }
+
+    // function add2() {
+    //     num += 2;
+    //     id_resultado.innerHTML = `O valor é: ${num}`
+    // }
+// Repetição de código desnecessárias
+
+    function calcularAC2 () {
+
+    }
+
+    function teste() {
+
+        let nome = 'bob';
+        let nota_entrega = 5.1;
+        let nota_pratica = 9.4;
+
+        calcularAC2(nota_entrega, nota_pratica, nome)
+    }
+
+</script>
+</html>
