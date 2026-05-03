@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Exercício 1</title>
+</head>
+<body>
+      <h1>Adicionar no Final</h1>
+      <label for="ipt_elemento">Digite um elemento: </label> <br>
+      <input type="text" id="ipt_elemento">
+      <div><b>Vetor:</b></div>
+      <div id="id_mostrar_vetor">Seu vetor aparecerá aqui!</div>
+      <br>
+      <div><b>Adicionar e Remover No Final</b></div>
+      <button onclick="botao_adicionarFim()"> Adicionar Final </button>
+      <button onclick="botao_removerFim()"> Remover Final </button>
+      <br><br>
+      <div><b>Adicionar e Remover No Início</b></div>
+      <button onclick="botao_adicionarInicio()"> Adicionar Início </button>
+      <button onclick="botao_removerInicio()"> Remover Início </button>
+      <br><br>
+      <div><b>Alterar Lista</b></div>
+      <label for="ipt_indice">Digite o índice inicial: </label><br>
+      <input type="text" id="ipt_indice">
+      <br><br>
+      <label for="ipt_quantidade">Digite a quantidade de itens a serem alterados: </label><br>
+      <input type="text" id="ipt_quantidade">
+      <br><br>
+      <label for="ipt_novoelemento">Digite um elemento a ser adicionado: </label> <br>
+      <input type="text" id="ipt_novoelemento">
+      <br><br>
+      <button onclick="botao_alterarLista()"> Alterar Lista </button>
+</body>
+<script src="funcoes.js"></script>
+<script>
+      let vetor = [];
+
+      function botao_adicionarFim() {
+            let adicionar = ipt_elemento.value;
+
+            let vetor_final = adicionarNoFinal(vetor, adicionar);
+
+            vetor = vetor_final;
+
+            id_mostrar_vetor.innerHTML = `${vetor}`;
+      }
+
+      function  botao_removerFim() {
+            let vetor_final = removerNoFinal(vetor);
+
+            vetor = vetor_final;
+
+            id_mostrar_vetor.innerHTML = `${vetor}`;
+      }
+
+      function botao_adicionarInicio() {
+            let adicionar = ipt_elemento.value;
+
+            let vetor_final = adicionarNoInicio(vetor, adicionar);
+
+            vetor = vetor_final;
+
+            id_mostrar_vetor.innerHTML = `${vetor}`;
+      }
+
+      function  botao_removerInicio() {
+            let vetor_final = removerDoInicio(vetor);
+
+            vetor = vetor_final;
+
+            id_mostrar_vetor.innerHTML = `${vetor}`;
+      }
+
+      function botao_alterarLista() {
+            let novoVetor = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+            let indice = Number(ipt_indice.value);
+            let quantidade = Number(ipt_indice.value);
+            let elemento = Number(ipt_indice.value);
+
+            let lista_alterada = alterarLista(novoVetor, indice, quantidade, elemento);
+
+            vetor = lista_alterada;
+
+            id_mostrar_vetor.innerHTML = `${vetor}`;
+      }
+</script>
+</html>
