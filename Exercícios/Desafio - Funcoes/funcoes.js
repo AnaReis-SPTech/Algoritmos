@@ -59,17 +59,45 @@ function removerDoInicio(vetor) {
 
 function alterarLista(vetor, indice, quantidade, novoElemento) {
       let lista_aux = [];
+      let lista_limpa = [];
 
       for (let i = 0; i < vetor.length; i++) {
 
-            if (i > indice && i < (quantidade + indice)) {
-                  continue
+            console.log("ENTRADA no for");
+
+            if (i >= indice && i < (quantidade + indice)) {
+                  console.log("i é menor que indice e maior que qtd+indice (If)");
+
+                  if (novoElemento != "") {
+                        console.log("Trocando lista_aux[i] por elemento novo");
+                        lista_aux[i] = `${novoElemento}`;
+                  } else {
+                        console.log("Ignorando elemento nulo");
+                  }
+
             } else {
+
                   lista_aux[i] = vetor[i]
+
             }
       }
 
-      vetor  = lista_aux;
+      
+      let count = 0;
+
+      for (let i = 0; i < lista_aux.length; i++) {
+
+            if (lista_aux[i] == "") {
+                  break
+            } else {
+                  lista_limpa[count] = lista_aux[i];
+                  count++
+                  continue
+                  console.log(lista_limpa);
+            }
+      }
+
+      vetor = lista_limpa;
 
       return vetor;
 }
