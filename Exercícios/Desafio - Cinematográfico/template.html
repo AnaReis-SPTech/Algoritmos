@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h2>Buscar Filmes:</h2>
+
+  <span>Nome:</span>
+  <input type="text" id="ipt_nome">
+  <button onclick="pesquisarNome()">Pesquisar</button>
+
+  <span>Diretor:</span>
+  <input type="text" id="ipt_diretor">
+  <button onclick="pesquisarDiretor()">Pesquisar</button>
+
+  <span>Ano:</span>
+  <select id="ipt_ano_parametro">
+    <option value="maior_igual">&gt;=</option>
+    <option value="igual">==</option>
+    <option value="menor_igual">&lt;=</option>
+  </select>
+  <input type="number" id="ipt_ano">
+  <button onclick="pesquisarAno()">Pesquisar</button><br><br>
+
+  <span>Gênero:</span>
+  <input type="text" id="ipt_genero">
+  <button onclick="pesquisarGenero()">Pesquisar</button>
+
+  <span>Média:</span>
+  <select id="ipt_media_parametro">
+    <option value="maior_igual">&gt;=</option>
+    <option value="igual">==</option>
+    <option value="menor_igual">&lt;=</option>
+  </select>
+  <input type="text" id="ipt_media">
+  <button onclick="pesquisarMedia()">Pesquisar</button><br><br>
+
+  <button onclick="pesquisar()">Mostrar Todos</button>
+
+  <div id="div_resultado"></div>
+</body>
+
+</html>
+<script src="dados.js"></script>
+<script>
+
+  function media(lista) {
+    let soma = 0;
+
+        for (let i = 0; i < lista.length; i++) {
+            soma += lista[i]
+    }
+
+    let media = soma / lista.length;
+
+    return media;
+}
+
+  function pesquisarNome() {
+    div_resultado.innerHTML = ``;
+    let nome = ipt_nome.value;
+    let nomeUpper = nome.toUpperCase();
+
+    for (let i = 0; i < filmes.length; i++) {
+
+      if (filmes[i].nome.toUpperCase().includes(nomeUpper)) {
+
+        div_resultado.innerHTML += `Nome: ${filmes[i].nome} | Diretor: ${filmes[i].diretor} | Ano: ${filmes[i].ano} | Média: ${media(filmes[i].notas).toFixed(2)} <br>`;
+      }
+
+    }
+  }
+
+  function pesquisarDiretor() {
+    div_resultado.innerHTML = ``;
+    let diretor = ipt_diretor.value;
+    let diretorUpper = diretor.toUpperCase();
+
+    for (let i = 0; i < filmes.length; i++) {
+
+      if (filmes[i].diretor.toUpperCase().includes(diretorUpper)) {
+
+        div_resultado.innerHTML += `Nome: ${filmes[i].nome} | Diretor: ${filmes[i].diretor} | Ano: ${filmes[i].ano} | Média: ${media(filmes[i].notas).toFixed(2)} <br>`;
+      }
+
+    }
+  }
+
+  function pesquisarAno() {
+    div_resultado.innerHTML = ``;
+    let ano_aparametro = ipt_ano_parametro.value;
+    let ano = ipt_ano.value;
+
+    for (let i = 0; i < filmes.length; i++) {
+
+      if (ano_aparametro == 'maior_igual') {
+        if (filmes[i].ano >= ano) {
+          div_resultado.innerHTML += `Nome: ${filmes[i].nome} | Diretor: ${filmes[i].diretor} | Ano: ${filmes[i].ano} | Média: ${media(filmes[i].notas).toFixed(2)} <br>`;
+        }
+
+      } else if (ano_aparametro == 'igual') {
+
+        if (filmes[i].ano == ano) {
+          div_resultado.innerHTML += `Nome: ${filmes[i].nome} | Diretor: ${filmes[i].diretor} | Ano: ${filmes[i].ano} | Média: ${media(filmes[i].notas).toFixed(2)} <br>`;
+        }
+      } else if (ano_aparametro == 'menor_igual') {
+
+        if (filmes[i].ano <= ano) {
+          div_resultado.innerHTML += `Nome: ${filmes[i].nome} | Diretor: ${filmes[i].diretor} | Ano: ${filmes[i].ano} | Média: ${media(filmes[i].notas).toFixed(2)} <br>`;
+        }
+
+      }
+
+    }
+
+  }
+
+  function pesquisarMedia() {
+    div_resultado.innerHTML = ``;
+    let media_aparametro = ipt_media_parametro.value;
+    let media_dig = ipt_media.value;
+
+    for (let i = 0; i < filmes.length; i++) {
+
+      if (media_aparametro == 'maior_igual') {
+        if (filmes[i].media >= media_dig) {
+          div_resultado.innerHTML += `Nome: ${filmes[i].nome} | Diretor: ${filmes[i].diretor} | Ano: ${filmes[i].ano} | Média: ${media(filmes[i].notas).toFixed(2)} <br>`;
+        }
+
+      } else if (media_aparametro == 'igual') {
+
+        if (filmes[i].media == media_dig) {
+          div_resultado.innerHTML += `Nome: ${filmes[i].nome} | Diretor: ${filmes[i].diretor} | Ano: ${filmes[i].ano} | Média: ${media(filmes[i].notas).toFixed(2)} <br>`;
+        }
+      } else if (media_aparametro == 'menor_igual') {
+
+        if (filmes[i].media <= media_dig) {
+          div_resultado.innerHTML += `Nome: ${filmes[i].nome} | Diretor: ${filmes[i].diretor} | Ano: ${filmes[i].ano} | Média: ${media(filmes[i].notas).toFixed(2)} <br>`;
+        }
+
+      }
+
+    }
+
+  }
+
+  function pesquisarGenero() {
+    div_resultado.innerHTML = ``;
+    let genero = ipt_genero.value;
+    let generoUpper = genero.toUpperCase();
+
+    for (let i = 0; i < filmes.length; i++) {
+
+      for (let j = 0; j < filmes[i].generos.length; j++) {
+        
+        if (filmes[i].generos[j].toUpperCase().includes(generoUpper)) {
+  
+          div_resultado.innerHTML += `Nome: ${filmes[i].nome} | Diretor: ${filmes[i].diretor} | Ano: ${filmes[i].ano} | Média: ${media(filmes[i].notas).toFixed(2)} <br>`;
+        }
+
+      }
+    }
+  }
+
+
+
+  function pesquisar() {
+    div_resultado.innerHTML = ``;
+
+    for (let i = 0; i < filmes.length; i++) {
+
+      div_resultado.innerHTML += `Nome: ${filmes[i].nome} | Diretor: ${filmes[i].diretor} | Ano: ${filmes[i].ano} | Média: ${media(filmes[i].notas).toFixed(2)} <br>`;
+
+    }
+  }
+
+  
+</script>
